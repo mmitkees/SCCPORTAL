@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="WelcomePageDef1"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Cases_types_count_char1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="Cases_types_count_char1Iterator"/>
+    <iterator Binds="RulesCounts1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="RulesCounts1Iterator"/>
+    <iterator Binds="Top_Judjementes_SD1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="Top_Judjementes_SD1Iterator"/>
+    <searchRegion Binds="Top_Judjementes_SD1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Top_Judjementes_SD1Query"/>
+    <iterator Binds="CourtNews1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="CourtNews1Iterator"/>
+    <searchRegion Binds="CourtNews1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CourtNews1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="RulesCounts1Iterator" id="HighDestoriaCourt">
+      <AttrNames>
+        <Item Value="HighDestoriaCourt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RulesCounts1Iterator" id="HighCourt">
+      <AttrNames>
+        <Item Value="HighCourt"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="RulesCounts1Iterator" id="RulesCounts1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.RulesCountsVO_SD"
+                      Name="RulesCounts10">
+        <AttrNames>
+          <Item Value="HighCourt"/>
+          <Item Value="HighDestoriaCourt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Top_Judjementes_SD1Iterator" id="Top_Judjementes_SD1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.Top_Judjementes_SD"
+                      Name="Top_Judjementes_SD10">
+        <AttrNames>
+          <Item Value="Rownum"/>
+          <Item Value="RuleDate"/>
+          <Item Value="CaseInfo"/>
+          <Item Value="BriefLawItems"/>
+          <Item Value="Rulewarding"/>
+          <Item Value="RulewardingBreif"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CourtNews1Iterator" id="CourtNews1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CourtNewsVO_SD"
+                      Name="CourtNews10">
+        <AttrNames>
+          <Item Value="NewId"/>
+          <Item Value="NewHeadline"/>
+          <Item Value="NewBrief"/>
+          <Item Value="LargeImage"/>
+          <Item Value="PublishDateFrom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

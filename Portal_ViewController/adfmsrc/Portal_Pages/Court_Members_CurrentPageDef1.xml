@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Court_Members_CurrentPageDef1"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Court_Members_Current_1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="Court_Members_Current_1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Court_Members_Current_1Iterator"
+          id="Court_Members_Current_1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.Court_Members_Current_VO_SD"
+                      Name="Court_Members_Current_10">
+        <AttrNames>
+          <Item Value="CourtMemberId"/>
+          <Item Value="Name"/>
+          <Item Value="SmallImage"/>
+          <Item Value="CvHtml"/>
+          <Item Value="PrevPos"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

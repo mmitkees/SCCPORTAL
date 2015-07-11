@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+ 
+      <af:panelSplitter id="ps1" styleClass="AFStretchWidth"
+                        inlineStyle="height:460.0px;">
+        <f:facet name="first">
+          <af:panelGroupLayout id="pgl1">
+            <table border="1">
+              <tr>
+                <td align="right">
+                  <af:inputText value="#{bindings.CourtYears.inputValue}"
+                                label="#{bindings.CourtYears.hints.label}"
+                                required="#{bindings.CourtYears.hints.mandatory}"
+                                columns="#{bindings.CourtYears.hints.displayWidth}"
+                                maximumLength="#{bindings.CourtYears.hints.precision}"
+                                shortDesc="#{bindings.CourtYears.hints.tooltip}"
+                                id="it1">
+                    <f:validator binding="#{bindings.CourtYears.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CourtYears.format}"/>
+                  </af:inputText>
+                   
+                  <af:inputText value="#{bindings.RollNumber.inputValue}"
+                                label="#{bindings.RollNumber.hints.label}"
+                                required="#{bindings.RollNumber.hints.mandatory}"
+                                columns="#{bindings.RollNumber.hints.displayWidth}"
+                                maximumLength="#{bindings.RollNumber.hints.precision}"
+                                shortDesc="#{bindings.RollNumber.hints.tooltip}"
+                                id="it2">
+                    <f:validator binding="#{bindings.RollNumber.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.RollNumber.format}"/>
+                  </af:inputText>
+                   
+                  <af:selectOneChoice value="#{bindings.RollType.inputValue}"
+                                      label="#{bindings.RollType.label}"
+                                      required="#{bindings.RollType.hints.mandatory}"
+                                      shortDesc="#{bindings.RollType.hints.tooltip}"
+                                      id="soc1">
+                    <f:selectItems value="#{bindings.RollType.items}" id="si1"/>
+                  </af:selectOneChoice>
+                </td>
+              </tr>
+               
+              <tr>
+                <td>
+                  <af:selectOneChoice value="#{bindings.CaseClaimeds.inputValue}"
+                                      label="#{bindings.CaseClaimeds.label}"
+                                      required="#{bindings.CaseClaimeds.hints.mandatory}"
+                                      shortDesc="#{bindings.CaseClaimeds.hints.tooltip}"
+                                      id="soc2">
+                    <f:selectItems value="#{bindings.CaseClaimeds.items}"
+                                   id="si2"/>
+                  </af:selectOneChoice>
+                   
+                  <af:selectOneChoice value="#{bindings.CaseDefendants.inputValue}"
+                                      label="#{bindings.CaseDefendants.label}"
+                                      required="#{bindings.CaseDefendants.hints.mandatory}"
+                                      shortDesc="#{bindings.CaseDefendants.hints.tooltip}"
+                                      id="soc3">
+                    <f:selectItems value="#{bindings.CaseDefendants.items}"
+                                   id="si3"/>
+                  </af:selectOneChoice>
+                </td>
+              </tr>
+               
+              <tr>
+                <td>
+                  <af:selectOneChoice value="#{bindings.ClaimedsLawers.inputValue}"
+                                      label="#{bindings.ClaimedsLawers.label}"
+                                      required="#{bindings.ClaimedsLawers.hints.mandatory}"
+                                      shortDesc="#{bindings.ClaimedsLawers.hints.tooltip}"
+                                      id="soc4">
+                    <f:selectItems value="#{bindings.ClaimedsLawers.items}"
+                                   id="si4"/>
+                  </af:selectOneChoice>
+                   
+                  <af:selectOneChoice value="#{bindings.DefendantsLawers.inputValue}"
+                                      label="#{bindings.DefendantsLawers.label}"
+                                      required="#{bindings.DefendantsLawers.hints.mandatory}"
+                                      shortDesc="#{bindings.DefendantsLawers.hints.tooltip}"
+                                      id="soc5">
+                    <f:selectItems value="#{bindings.DefendantsLawers.items}"
+                                   id="si5"/>
+                  </af:selectOneChoice>
+                </td>
+              </tr>
+               
+              <tr>
+                <td align="center">
+                  <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}"
+                                    text="البحث"
+                                    disabled="#{!bindings.ExecuteWithParams.enabled}"
+                                    id="cb1"/>
+                </td>
+              </tr>
+            </table>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelGroupLayout id="pgl2" styleClass="AFStretchWidth">
+            <af:table value="#{bindings.CasesSearchVO_SD11.collectionModel}"
+                      var="row" styleClass="AFStretchWidth"
+                      rows="#{bindings.CasesSearchVO_SD11.rangeSize}"
+                      emptyText="#{bindings.CasesSearchVO_SD11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.CasesSearchVO_SD11.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.CasesSearchVO_SD1Query.queryDescriptor}"
+                      queryListener="#{bindings.CasesSearchVO_SD1Query.processQuery}"
+                      varStatus="vs"
+                      selectedRowKeys="#{bindings.CasesSearchVO_SD11.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.CasesSearchVO_SD11.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" partialTriggers="::cb1">
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.RuleNumber.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="50px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.RuleNumber.label}"
+                         id="c2">
+                <af:outputText value="#{row.RuleNumber}" id="ot6">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CasesSearchVO_SD11.hints.RuleNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.CourtYear.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="50px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.CourtYear.label}"
+                         id="c12">
+                <af:outputText value="#{row.CourtYear}" id="ot8">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CasesSearchVO_SD11.hints.CourtYear.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.RuleDate.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="60px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.RuleDate.label}"
+                         id="c11">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.RuleDate}" id="id1"/>
+                </f:facet>
+                <af:outputText value="#{row.RuleDate}" id="ot7">
+                  <af:convertDateTime pattern="#{bindings.CasesSearchVO_SD11.hints.RuleDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.RuleSubjectTypeName.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="100px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.RuleSubjectTypeName.label}"
+                         id="c3">
+                <af:outputText value="#{row.RuleSubjectTypeName}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.RollStatus.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="100px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.RollStatus.label}"
+                         id="c9">
+                <af:outputText value="#{row.RollStatus}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.Claimeds.name}"
+                         filterable="true" sortable="true" width="150px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.Claimeds.label}"
+                         id="c8">
+                <af:outputText value="#{row.Claimeds}" id="ot9"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.Defendents.name}"
+                         filterable="true" sortable="true" width="150px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.Defendents.label}"
+                         id="c4">
+                <af:outputText value="#{row.Defendents}" id="ot12"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.Subject.name}"
+                         filterable="true" sortable="true" width="250px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.Subject.label}"
+                         id="c13">
+                <af:outputText value="#{row.Subject}" id="ot10"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.Decree.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="150px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.Decree.label}"
+                         id="c1">
+                <af:outputText value="#{row.Decree}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.JudgeDone.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="150px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.JudgeDone.label}"
+                         id="c5">
+                <af:outputText value="#{row.JudgeDone}" id="ot13"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.PostponeDate.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="100px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.PostponeDate.label}"
+                         id="c10">
+                <af:outputText value="#{row.PostponeDate}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.CourtTypeName.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="120px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.CourtTypeName.label}"
+                         id="c7">
+                <af:outputText value="#{row.CourtTypeName}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CasesSearchVO_SD11.hints.StatusName.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="70px"
+                         headerText="#{bindings.CasesSearchVO_SD11.hints.StatusName.label}"
+                         id="c6">
+                <af:outputText value="#{row.StatusName}" id="ot11"/>
+              </af:column>
+            </af:table>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelSplitter>
+
+</jsp:root>

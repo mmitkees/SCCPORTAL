@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="Portal_Model"
+   Version="11.1.1.64.93"
+   SeparateXMLFiles="true"
+   PackageName="scc.portal.model" >
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../Portal_Model.jpr" />
+      <Attr Name="_appModuleNames1" Value="scc.portal.model.module.AppModuleAM_HS" />
+      <Attr Name="_appModuleNames0" Value="scc.portal.model.module.AppModuleAM_SD" />
+      <Attr Name="_NamedConnection" Value="scc_conn" />
+   </DesignTime>
+   <Containee
+      Name="module"
+      ObjectType="JboPackage"
+      PackageName="scc.portal.model.module" >
+      <DesignTime>
+         <Attr Name="_AM" Value="true" />
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="viewObject"
+      ObjectType="JboPackage"
+      PackageName="scc.portal.model.viewObject" >
+      <DesignTime>
+         <Attr Name="_VO" Value="true" />
+         <Attr Name="_VL" Value="true" />
+      </DesignTime>
+   </Containee>
+</JboProject>

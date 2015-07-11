@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="test_table_bindPageDef"
+                Package="scc.portal.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="root" RangeSize="25" DataControl="Test_table_bind"
+              id="Test_table_bindIterator"/>
+    <accessorIterator MasterBinding="Test_table_bindIterator" Binds="jobList"
+                      RangeSize="25" DataControl="Test_table_bind"
+                      BeanClass="scc.portal.view.backing.Job"
+                      id="jobListIterator"/>
+    <iterator Binds="CasesRules_Cases_IT_HS" RangeSize="25"
+              DataControl="AppModuleAM_HSDataControl"
+              id="CasesRules_Cases_IT_HSIterator"/>
+    <searchRegion Binds="CasesRules_Cases_IT_HSIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CasesRules_Cases_IT_HSQuery"/>
+    <iterator Binds="Citizens_VO1" RangeSize="25"
+              DataControl="AppModuleAM_HSDataControl"
+              id="Citizens_VO1Iterator"/>
+  </executables>
+  <bindings>
+ 
+ 
+    <tree IterBinding="CasesRules_Cases_IT_HSIterator"
+          id="CasesRules_Cases_IT_HS1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CasesVO_HS"
+                      Name="CasesRules_Cases_IT_HS10">
+        <AttrNames>
+          <Item Value="CaseId"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="Rules_InsertVO_HS"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="scc.portal.model.viewObject.Rules_InsertVO_HS"
+                      Name="CasesRules_Cases_IT_HS11">
+        <AttrNames>
+          <Item Value="Id"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    
+    <tree IterBinding="CasesRules_Cases_IT_HSIterator"
+          id="CasesRules_Cases_IT_HS">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CasesVO_HS"
+                      Name="CasesRules_Cases_IT_HS0">
+        <AttrNames>
+          <Item Value="CaseId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Citizens_VO1Iterator" id="Citizens_VO1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.Citizens_VO"
+                      Name="Citizens_VO10"/>
+    </tree>
+    <tree IterBinding="Citizens_VO1Iterator" id="Citizens_VO11">
+      <nodeDefinition DefName="scc.portal.model.viewObject.Citizens_VO"
+                      Name="Citizens_VO110"/>
+    </tree>
+  </bindings>
+</pageDefinition>

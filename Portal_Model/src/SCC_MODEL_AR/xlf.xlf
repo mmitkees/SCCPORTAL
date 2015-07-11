@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="SCC_MODEL_AR.xlf"
+        datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="scc.portal.model.viewObject.RollStatus_LABEL">
+        <source>Case Status</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CaseClaimedLawersVO_SD_LABEL">
+        <source>Case Claimed Lawers Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CaseClaimedVO_SD_LABEL">
+        <source>Case Claimed Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CaseDefendantLawersVO_SD_LABEL">
+        <source>Case Defendant Lawers Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CasesDefendantVO_SD_LABEL">
+        <source>Cases Defendant Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.SearchRollsVO_SD_LABEL">
+        <source>Cases Search Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.Cases_MofwadeenVO_SD_LABEL">
+        <source>Cases Mofwadeen Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.Cases_GalastVO_SD_LABEL">
+        <source>Cases Galast Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.Cases_GadwalVO_SD_LABEL">
+        <source>Cases Gadwal Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.LawsVO_SD_LABEL">
+        <source>Laws Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.Cases_LawsVO_SD_LABEL">
+        <source>Cases Laws Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.LawsVO_SD.LAW_TYPE_LABEL">
+        <source>نوع القانون</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.Laws_CasesVL_SD_LABEL">
+        <source>Laws Cases Vl Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CasesLawsVL_SD_LABEL">
+        <source>Cases Laws Vl Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.LawsTypesVO_SD_LABEL">
+        <source>Laws Types Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.LawStatusVO_SD_LABEL">
+        <source>Law Status Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CourtRuleVO_SD_LABEL">
+        <source>Court Rule Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.HighCourtRulesVO_SD_LABEL">
+        <source>High Court Rules Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.RuleStatusVO_SD_LABEL">
+        <source>Rule Status Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.rulewardingVO_SD_LABEL">
+        <source>Rulewarding Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.SearchMagalaVO_SD_LABEL">
+        <source>Search Magala Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.SearchRollMofwadeenVO_SD_LABEL">
+        <source>Search Roll Mofwadeen Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.SearchRollsMofwadeenVO_SD_LABEL">
+        <source>Search Rolls Mofwadeen Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CourtRollDatesVO_SD_LABEL">
+        <source>Court Roll Dates Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.MofwadeenRollDatesVO_SD_LABEL">
+        <source>Mofwadeen Roll Dates Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.MofwadeenRollYearsVO_SD_LABEL">
+        <source>Mofwadeen Roll Years Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CourtRollYearsVO_SD_LABEL">
+        <source>Court Roll Years Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LOVUIHints_NullValueId">
+        <source>&lt;No Selection&gt;</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.GroupesSearchVO_SD_LABEL">
+        <source>Groupes Search Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CourtTypesVO_SD_LABEL">
+        <source>Court Types Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.PartsLKPVO_SD_LABEL">
+        <source>Parts Lkpvo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CourtRulesPartsVL_SD_LABEL">
+        <source>Court Rules Parts Vl Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.RulesChartVO_SD_LABEL">
+        <source>Rules Chart Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.RulesCountsVO_SD_LABEL">
+        <source>Rules Counts Vo Sd</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="scc.portal.model.viewObject.CourtNewsVO_SD_LABEL">
+        <source>Court News Vo Sd</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

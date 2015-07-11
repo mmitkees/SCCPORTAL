@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="LawsSearchPageDef"
+                Package="Portal_Pages.PagesFragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="Laws1.variablesMap.LAW_NUM"
+                     Name="ExecuteWithParams_LAW_NUM" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="Laws1.variablesMap.LAW_YEAR"
+                     Name="ExecuteWithParams_LAW_YEAR" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="Laws1.variablesMap.LAW_TYPE"
+                     Name="ExecuteWithParams_LAW_TYPE" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="Laws1.variablesMap.LAW_NAME"
+                     Name="ExecuteWithParams_LAW_NAME" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="Laws1.variablesMap.param"
+                     Name="ExecuteWithParams_param" IsQueriable="false"/>
+    </variableIterator>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Laws1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="Laws1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="LawsTypes1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl" id="LawsTypes1Iterator"/>
+    <iterator Binds="LawStatus1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl" id="LawStatus1Iterator"/>
+    <iterator Binds="Cases_Laws1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="Cases_Laws1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="Cases_Laws1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Cases_Laws1Query"/>
+    <searchRegion Binds="Laws1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Laws1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="Laws1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="LAW_NUM" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_LAW_NUM}"/>
+      <NamedData NDName="LAW_YEAR" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_LAW_YEAR}"/>
+      <NamedData NDName="LAW_TYPE" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_LAW_TYPE}"/>
+      <NamedData NDName="LAW_NAME" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams_LAW_NAME}"/>
+      <NamedData NDName="param" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_param}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="LAW_NUM">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_LAW_NUM"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="LAW_YEAR">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_LAW_YEAR"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="LAW_TYPE" DTSupportsMRU="true"
+          StaticList="false" ListIter="LawsTypes1Iterator"
+          NullValueId="all"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_LAW_TYPE"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="LawType"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="variables" id="LAW_NAME">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_LAW_NAME"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="param" DTSupportsMRU="false"
+          StaticList="false" ListIter="LawStatus1Iterator">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_param"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="Cases_Laws1Iterator" id="Cases_Laws1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.Cases_LawsVO_SD"
+                      Name="Cases_Laws10">
+        <AttrNames>
+          <Item Value="LawId"/>
+          <Item Value="CourtTypeCode"/>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtYear"/>
+          <Item Value="Rulessubjecttypename"/>
+          <Item Value="Base"/>
+          <Item Value="BriefLawItems"/>
+          <Item Value="BriefSubject"/>
+          <Item Value="CaseInfo"/>
+          <Item Value="Courtname"/>
+          <Item Value="JournalPublishDate"/>
+          <Item Value="JournalVersionNum"/>
+          <Item Value="Law"/>
+          <Item Value="LawNum"/>
+          <Item Value="Notes"/>
+          <Item Value="PartNo"/>
+          <Item Value="PartPageNo"/>
+          <Item Value="RuleDate"/>
+          <Item Value="Rulessubjecttypeorder"/>
+          <Item Value="Rulewarding"/>
+          <Item Value="VolumeNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Laws1Iterator" id="Laws1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.LawsVO_SD"
+                      Name="Laws10">
+        <AttrNames>
+          <Item Value="LawId"/>
+          <Item Value="LawName"/>
+          <Item Value="LawNum"/>
+          <Item Value="LawYear"/>
+          <Item Value="LawType"/>
+          <Item Value="Lawtypename"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

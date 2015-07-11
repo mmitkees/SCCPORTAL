@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="search_casePageDef"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CasesVO_HS1" RangeSize="25"
+              DataControl="AppModuleAM_HSDataControl" id="CasesVO_HS1Iterator"/>
+    <iterator Binds="Cases_IT_HS" RangeSize="30"
+              DataControl="AppModuleAM_HSDataControl" id="Cases_IT_HSIterator"/>
+    <searchRegion Criteria="CasesVO_HS_Default_Criteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Cases_IT_HSIterator"
+                  id="CasesVOHSDefaultCriteriaQuery"/>
+    <searchRegion Criteria="CasesVO_HS_Default_Criteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Cases_IT_HSIterator"
+                  id="CasesVOHSDefaultCriteriaQuery1"/>
+    <searchRegion Criteria="CasesVO_HS_Default_Criteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Cases_IT_HSIterator"
+                  id="CasesVOHSDefaultCriteriaQuery2"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CasesVO_HS1Iterator" id="Find"
+            RequiresUpdateModel="true" Action="iteratorFind"/>
+    <action IterBinding="CasesVO_HS1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="CourtTypeCode">
+      <AttrNames>
+        <Item Value="CourtTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="CourtYear">
+      <AttrNames>
+        <Item Value="CourtYear"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="RuleSubjectTypeCode">
+      <AttrNames>
+        <Item Value="RuleSubjectTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="RuleNumberHcourt">
+      <AttrNames>
+        <Item Value="RuleNumberHcourt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="Notes">
+      <AttrNames>
+        <Item Value="Notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="CaseStatusCode">
+      <AttrNames>
+        <Item Value="CaseStatusCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="SubmissionDate">
+      <AttrNames>
+        <Item Value="SubmissionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="AcceptanceDate">
+      <AttrNames>
+        <Item Value="AcceptanceDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="ToMofodeenDate">
+      <AttrNames>
+        <Item Value="ToMofodeenDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="FromMofodeenToCourtDate">
+      <AttrNames>
+        <Item Value="FromMofodeenToCourtDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="MofodeenReportPrepareDate">
+      <AttrNames>
+        <Item Value="MofodeenReportPrepareDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="InsertDate">
+      <AttrNames>
+        <Item Value="InsertDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="Requests">
+      <AttrNames>
+        <Item Value="Requests"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="CourtOfSubject">
+      <AttrNames>
+        <Item Value="CourtOfSubject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="Subject">
+      <AttrNames>
+        <Item Value="Subject"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="Lawyer">
+      <AttrNames>
+        <Item Value="Lawyer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="SubjectType">
+      <AttrNames>
+        <Item Value="SubjectType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="SubjectFileReceived">
+      <AttrNames>
+        <Item Value="SubjectFileReceived"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="SubjectFileReceiveDate">
+      <AttrNames>
+        <Item Value="SubjectFileReceiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="ArgueType">
+      <AttrNames>
+        <Item Value="ArgueType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ArgentStopImplementation">
+      <AttrNames>
+        <Item Value="ArgentStopImplementation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="StopImplementationDate">
+      <AttrNames>
+        <Item Value="StopImplementationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="FinedDate">
+      <AttrNames>
+        <Item Value="FinedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="FinedValue">
+      <AttrNames>
+        <Item Value="FinedValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="FinedCancelDate">
+      <AttrNames>
+        <Item Value="FinedCancelDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="MofedeenManagerDate">
+      <AttrNames>
+        <Item Value="MofedeenManagerDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="CourtManagerDate">
+      <AttrNames>
+        <Item Value="CourtManagerDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="ClaimingType">
+      <AttrNames>
+        <Item Value="ClaimingType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="FristRollDate">
+      <AttrNames>
+        <Item Value="FristRollDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="FeesPayDate">
+      <AttrNames>
+        <Item Value="FeesPayDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="RecieveEmpInRolls">
+      <AttrNames>
+        <Item Value="RecieveEmpInRolls"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="RecievingDateInRolls">
+      <AttrNames>
+        <Item Value="RecievingDateInRolls"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="ReviewingEmpInRolls">
+      <AttrNames>
+        <Item Value="ReviewingEmpInRolls"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingDateInRolls">
+      <AttrNames>
+        <Item Value="ReviewingDateInRolls"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="RecieveEmpInMofedeen">
+      <AttrNames>
+        <Item Value="RecieveEmpInMofedeen"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="RecieveEmpInGadwal">
+      <AttrNames>
+        <Item Value="RecieveEmpInGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="RecievingDateInMofedeen">
+      <AttrNames>
+        <Item Value="RecievingDateInMofedeen"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="RecievingDateInGadwal">
+      <AttrNames>
+        <Item Value="RecievingDateInGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingEmpInMofedeen">
+      <AttrNames>
+        <Item Value="ReviewingEmpInMofedeen"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingEmpInGadwal">
+      <AttrNames>
+        <Item Value="ReviewingEmpInGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingDateInMofedeen">
+      <AttrNames>
+        <Item Value="ReviewingDateInMofedeen"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingDateInGadwal">
+      <AttrNames>
+        <Item Value="ReviewingDateInGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingEmp2InGadwal">
+      <AttrNames>
+        <Item Value="ReviewingEmp2InGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingEmp2DateInGadwal">
+      <AttrNames>
+        <Item Value="ReviewingEmp2DateInGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingEmp3InGadwal">
+      <AttrNames>
+        <Item Value="ReviewingEmp3InGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator"
+                     id="ReviewingEmp3DateInGadwal">
+      <AttrNames>
+        <Item Value="ReviewingEmp3DateInGadwal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="ElectionsLaw">
+      <AttrNames>
+        <Item Value="ElectionsLaw"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CasesVO_HS1Iterator" id="BriefSubject">
+      <AttrNames>
+        <Item Value="BriefSubject"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Cases_IT_HSIterator" id="Cases_IT_HS">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CasesVO_HS"
+                      Name="Cases_IT_HS0">
+        <AttrNames>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtTypeCode"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleSubjectTypeCode"/>
+          <Item Value="SubmissionDate"/>
+          <Item Value="AcceptanceDate"/>
+          <Item Value="Subject"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Cases_IT_HSIterator" id="Cases_IT_HS1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CasesVO_HS"
+                      Name="Cases_IT_HS10">
+        <AttrNames>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtTypeCode"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleSubjectTypeCode"/>
+          <Item Value="CaseStatusCode"/>
+          <Item Value="SubmissionDate"/>
+          <Item Value="Requests"/>
+          <Item Value="Subject"/>
+          <Item Value="CaseId"/>
+          <Item Value="CourtTypeName"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="CaseStatusName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Cases_IT_HSIterator" id="Cases_IT_HS2">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CasesVO_HS"
+                      Name="Cases_IT_HS20">
+        <AttrNames>
+          <Item Value="CourtTypeName"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="CaseStatusName"/>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtYear"/>
+          <Item Value="SubmissionDate"/>
+          <Item Value="Requests"/>
+          <Item Value="Notes"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:pageTemplate viewId="/Portal_Templates/Main_Template.jspx"
+                   value="#{bindings.pageTemplateBinding}" id="pt1">
+    <f:facet name="Main_Content">
+      <af:group id="g1" binding="#{backingBeanScope.MofwadeenBB.g1}">
+        <af:outputText id="ot1" escape="false"
+                       binding="#{backingBeanScope.MofwadeenBB.ot1}"
+                       value="#{backingBeanScope.MofwadeenBB.someHtml}"/>
+      </af:group>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

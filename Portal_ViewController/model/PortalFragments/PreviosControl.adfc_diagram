@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View3">
+      <property
+         name="activityId">PreviosControl1</property>
+      <property
+         name="page">/Portal_Pages/PreviosControl.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>PreviosControl1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">203.44824</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">201.68555</property>
+   </View>
+</SDM>

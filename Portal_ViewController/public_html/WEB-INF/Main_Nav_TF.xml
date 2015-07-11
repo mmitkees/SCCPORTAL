@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Main_Nav_TF">
+    <default-activity id="__1">Main_Nav_Router</default-activity>
+    <input-parameter-definition id="__21">
+      <name id="__22">nav_id</name>
+      <value>#{pageFlowScope.nav_id}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__31">
+      <name id="__32">book_id</name>
+      <value>#{pageFlowScope.book_id}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <router id="Main_Nav_Router">
+      <case>
+        <expression>#{pageFlowScope.nav_id eq 'AboutCourt'}</expression>
+        <outcome id="__20">AboutCourt</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.nav_id eq 'CasesGadwal'}</expression>
+        <outcome id="__25">CasesGadwal</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.nav_id eq 'CasesGalasat'}</expression>
+        <outcome id="__26">CasesGalasat</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.nav_id eq 'CasesMofwadeen'}</expression>
+        <outcome id="__23">CasesMofwadeen</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.nav_id eq 'chairmanword'}</expression>
+        <outcome id="__24">chairmanword</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.nav_id eq 'a'}</expression>
+        <outcome id="__30">a</outcome>
+      </case>
+      <default-outcome>chairmanword</default-outcome>
+    </router>
+    <task-flow-call id="AboutCourt">
+      <task-flow-reference>
+        <document>/PortalFragments/AboutCourt.xml</document>
+        <id>AboutCourt</id>
+      </task-flow-reference>
+      <input-parameter-map>#{backingBeanScope.test.bookID}</input-parameter-map>
+    </task-flow-call>
+    <task-flow-call id="CasesGadwal">
+      <task-flow-reference>
+        <document>/PortalFragments/CasesGadwal.xml</document>
+        <id>CasesGadwal</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="CasesGalasat">
+      <task-flow-reference>
+        <document>/PortalFragments/CasesGalasat.xml</document>
+        <id>CasesGalasat</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="CasesMofwadeen">
+      <task-flow-reference>
+        <document>/PortalFragments/CasesMofwadeen.xml</document>
+        <id>CasesMofwadeen</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="chairmanword">
+      <task-flow-reference>
+        <document>/PortalFragments/chairmanword.xml</document>
+        <id>chairmanword</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="a">
+      <task-flow-reference>
+        <document>/WEB-INF/a.xml</document>
+        <id>a</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">Main_Nav_Router</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__14">AboutCourt</from-outcome>
+        <to-activity-id id="__5">AboutCourt</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome id="__15">CasesGadwal</from-outcome>
+        <to-activity-id id="__7">CasesGadwal</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome id="__16">CasesGalasat</from-outcome>
+        <to-activity-id id="__9">CasesGalasat</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome id="__17">CasesMofwadeen</from-outcome>
+        <to-activity-id id="__11">CasesMofwadeen</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__18">chairmanword</from-outcome>
+        <to-activity-id id="__12">chairmanword</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome id="__28">a</from-outcome>
+        <to-activity-id id="__29">a</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

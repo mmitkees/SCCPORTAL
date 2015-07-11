@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="untitled1PageDef"
+                Package="scc.portal.view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="Dostors1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="Dostors1Iterator"/>
+    <searchRegion Binds="Dostors1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Dostors1Query"/>
+    <iterator Binds="CitizensVO_HS1" RangeSize="25"
+              DataControl="AppModuleAM_HSDataControl"
+              id="CitizensVO_HS1Iterator"/>
+    <iterator Binds="Cases_IT_HS" RangeSize="25"
+              DataControl="AppModuleAM_HSDataControl" id="Cases_IT_HSIterator"/>
+    <iterator Binds="Judjements_SearchVO_HS1" RangeSize="25"
+              DataControl="AppModuleAM_HSDataControl"
+              id="Judjements_SearchVO_HS1Iterator"/>
+    <searchRegion Criteria="Judjements_SearchVO_HSCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Judjements_SearchVO_HS1Iterator"
+                  id="JudjementsSearchVOHSCriteriaQuery"/>
+    <searchRegion Criteria="Judjements_SearchVO_HSCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Judjements_SearchVO_HS1Iterator"
+                  id="JudjementsSearchVOHSCriteriaQuery1"/>
+    <iterator Binds="MofwadeenRollDates1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="MofwadeenRollDates1Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="MofwadeenRollDates1.variablesMap.CourtYear"
+                     Name="ExecuteWithParams_CourtYear" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="CourtRollMofwadeenVO_SD1.variablesMap.RollDate"
+                     Name="ExecuteWithParams1_RollDate" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="MofwadeenRollYears1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="MofwadeenRollYears1Iterator"/>
+    <iterator Binds="CourtRollMofwadeenVO_SD1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="CourtRollMofwadeenVO_SD1Iterator"/>
+    <iterator Binds="CourtTypes2" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="CourtTypes2Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Dostors1Iterator" id="Dostors1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.DostorsCurrentVO_SD"
+                      Name="Dostors10">
+        <AttrNames>
+          <Item Value="Did"/>
+          <Item Value="Dnamear"/>
+          <Item Value="Dnameen"/>
+          <Item Value="Dtypeid"/>
+          <Item Value="Dpdffileurl"/>
+          <Item Value="Dpublishdate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues StaticList="false" IterBinding="CitizensVO_HS1Iterator"
+                  id="Name" DTSupportsMRU="true" Uses="LOV_Id"/>
+    <listOfValues StaticList="false" IterBinding="Cases_IT_HSIterator"
+                  Uses="LOV_RuleSubjectTypeName" id="RuleSubjectTypeName"/>
+    <tree IterBinding="Judjements_SearchVO_HS1Iterator"
+          id="Judjements_SearchVO_HS1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.Judjements_SearchVO_HS"
+                      Name="Judjements_SearchVO_HS10">
+        <AttrNames>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtTypeName"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="Id"/>
+          <Item Value="RuleDate"/>
+          <Item Value="RuleNtext"/>
+          <Item Value="PartNo"/>
+          <Item Value="PartPageNo"/>
+          <Item Value="JournalPublishDate"/>
+          <Item Value="JournalVersionNum"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues StaticList="false"
+                  IterBinding="Judjements_SearchVO_HS1Iterator"
+                  Uses="LOV_RuleSubjectTypeCode" id="RuleSubjectTypeCode"/>
+    <action IterBinding="MofwadeenRollDates1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="CourtYear" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_CourtYear}"/>
+    </action>
+    <list IterBinding="variables" id="CourtYear" DTSupportsMRU="true"
+          StaticList="false" ListIter="MofwadeenRollYears1Iterator">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_CourtYear"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="CourtYear"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="CourtYear"/>
+      </ListDisplayAttrNames>
+    </list>
+    <action IterBinding="CourtRollMofwadeenVO_SD1Iterator"
+            id="ExecuteWithParams1" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="RollDate" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams1_RollDate}"/>
+      <NamedData NDName="RollStatus" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="RollType" NDType="oracle.jbo.domain.Number"/>
+    </action>
+    <list IterBinding="variables" id="RollDate" DTSupportsMRU="true"
+          StaticList="false" ListIter="MofwadeenRollDates1Iterator">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_RollDate"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="RuleDate"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="RuleDate"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="CourtTypes2Iterator" id="CourtTypes2">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CourtTypesVO_SD"
+                      Name="CourtTypes20">
+        <AttrNames>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="PartsLKP"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="scc.portal.model.viewObject.PartsLKPVO_SD"
+                      Name="CourtTypes21">
+        <AttrNames>
+          <Item Value="PartId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CourtTypes2Iterator" id="CourtTypes21">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CourtTypesVO_SD"
+                      Name="CourtTypes210">
+        <AttrNames>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="PartsLKP"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="scc.portal.model.viewObject.PartsLKPVO_SD"
+                      Name="CourtTypes211">
+        <AttrNames>
+          <Item Value="PartNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

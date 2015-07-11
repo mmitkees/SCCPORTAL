@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view locale="ar"  >
+    <af:document id="d1"  >
+    <af:resource type="css" source="../css/style.css" ></af:resource>
+    <af:resource type="css" source="css/rtl.css"  ></af:resource>
+    <af:resource type="css" source="../fullcalendar/fullcalendar.css" ></af:resource>    
+    <af:resource type="javascript" source="../js/jquery-1.11.3.min.js" ></af:resource>
+    <af:resource type="javascript" source="../lib/moment.min.js" ></af:resource>
+    <af:resource type="javascript" source="../fullcalendar/fullcalendar.js" ></af:resource>
+    <af:resource type="javascript" source="../lib/ar.js" ></af:resource>
+    <af:resource type="javascript" source="../js/highcharts.js" ></af:resource>
+    <af:resource type="javascript" source="../js/exporting.js" ></af:resource>
+    <af:resource type="javascript" source="../js/scripts.js" ></af:resource>
+
+    
+      <script>
+    $(document).ready(function () {
+
+        // page is now ready, initialize the calendar...
+        $('#calendar').fullCalendar( {
+            // put your options and callbacks here
+        })
+
+    });
+  </script>
+    <script type="text/javascript">
+    document.body.className = 'home boxed shadow bg01';
+    $(function () {
+        $('#container').highcharts( {
+            chart :  {
+                type : 'area'
+            },
+            title :  {
+                text : ' '
+            },
+            subtitle :  {
+                text : ' '
+            },
+            xAxis :  {
+                allowDecimals : false, labels :  {
+                    formatter : function () {
+                        return this.value;// clean, unformatted number for year
+                    }
+                }
+            },
+            yAxis :  {
+                title :  {
+                    text : ' '
+                },
+                labels :  {
+                    formatter : function () {
+                        /*return this.value / 1000 + 'k';*/
+                        return this.value;
+                    }
+                }
+            },
+            tooltip :  {
+                pointFormat : '<b>{point.y:,.0f}</b> {series.name} صدرت في {point.x}'
+            },
+            plotOptions :  {
+                area :  {
+                    pointStart : 2001, marker :  {
+                        enabled : false, symbol : 'circle', radius : 2, states :  {
+                            hover :  {
+                                enabled : true
+                            }
+                        }
+                    }
+                }
+            },
+            series : [
+            {
+                name : 'الأحكام الدستورية', data : [12, 44, 32, 17, 26, 6, 11, 32, 39, 26, 44, 78, 34, 48]
+            },
+            {
+                name : 'أحكام المحكمة العليا', data : [14, 28, 12, 15, 11, 15, 25, 47, 57, 68, 20, 35, 28, 39]
+            }
+]
+        });
+    });
+  </script>
+     </af:document>
+
+  <!--Arabic interface style-->
+
+  <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<link href="style-ie.css" rel="stylesheet" type="text/css" media="screen">
+	<![endif]-->
+   
+	 <div class="root">
+   <header class="h1">
+    <section class="main-header">
+     <a href="index.html">
+      <img src="../images/logo.png" alt="HC Court" width="250" class="logo"></img></a>
+     <!--link to swap languages
+                <a href="../index.html" class="langlink">English <img src="images/en_icon.png" >
+                </a> -->
+     <nav class="mainmenu">
+      <ul>
+       <li class="current-menu-item">
+        <a href="index.html"
+           style="font-family:'Droid Arabic Kufi'; font-weight:bold;">الرئيسية</a>
+       </li>
+        
+       <li>
+        <a href="about.html">عن المحكمة</a>
+       </li>
+        
+       <li>
+        <a href="#">الوثائق الدستورية</a>
+        <ul>
+         <li>
+          <a href="#">عنصر قائمة فرعية 01</a>
+         </li>
+          
+         <li>
+          <a href="#">عنصر قائمة فرعية 02</a>
+         </li>
+          
+         <li>
+          <a href="#">عنصر قائمة فرعية 03</a>
+         </li>
+          
+         <li>
+          <a href="#">عنصر قائمة فرعية 04</a>
+         </li>
+        </ul>
+       </li>
+        
+       <li>
+        <a href="#">المجلة</a>
+       </li>
+        
+       <li>
+        <a href="#">الدعاوى</a>
+       </li>
+        
+       <li>
+        <a href="#">الأحكام الدستورية</a>
+       </li>
+        
+       <li>
+        <a href="#">الجلسات</a>
+       </li>
+        
+       <li>
+        <a href="#">البحث</a>
+       </li>
+      </ul>
+      
+      
+     </nav>
+     <div class="clear"></div>
+    </section>
+   </header>
+   <div class="newstitle">
+    <div class="colortitle">
+     <h5>أخبار المحكمة</h5>
+    </div>
+   </div>
+   <section class="slider4">
+    <div class="slider">
+     <article>
+      <div>
+       <img src="../images/slider01.jpg" alt=""></img>
+      </div>
+      <h4>الدستورية العليا تقضي بعدم دستورية قانون تقسيم الدوائر الانتخابية</h4>
+      <p>قضت المحكمة الدستورية العليا برئاسة المستشار أنور العاصي، نائب رئيس
+         المحكمة الدستورية، والمنعقدة بكورنيش النيل بمنطقة المعادي، بعدم دستورية
+         نص المادة الثالثة من قانون 202 لسنة 2014 الخاص بتقسيم الدوائر في المجال
+         الفردي ورفض ما عدا ذلك من طعون حيث كانت أربعه طعون مقامة لبطلان قانون
+         الانتخابات البرلمانية، ومباشرة الحقوق السياسية، وقانون تقسيم الدوائر</p>
+      <p align="right">
+       <a href="#" class="btn brown">المزيد من التفاصيل</a>
+      </p>
+     </article>
+      
+     <article>
+      <div>
+       <img src="../images/slider02.jpg" alt=""></img>
+      </div>
+      <h4>المحكمة الدستورية العليا ترفض دعوى عدم دستورية قانون الوصية</h4>
+      <p>رفضت المحكمة الدستورية العليا برئاسة المستشار عدلى منصور أمس السبت،
+         دعوى أقامها شخص ضد أولاد شقيقته بطلب بطلان وصية المتوفى لمخالفة نص
+         الفقرة الأولى من المادة(37) من قانون الوصية أحكام الشريعة الإسلامية.
+         وجاء بأسباب الحكم أن القيد المقرر بالمادة الثانية من الدستور بعد
+         تعديلها فى 22 مايو 1980،</p>
+      <p align="right">
+       <a href="#" class="btn brown">المزيد من التفاصيل</a>
+      </p>
+     </article>
+    </div>
+   </section>
+    
+   <section class="content">
+    <section class="columns">
+     <div class="col23 tabbed">
+      <div class="colortitle redbrown">
+       <h5>
+        <img src="../images/balance_icon.png"></img>
+        أحكام المحكمة
+       </h5>
+      </div>
+      <div class="boxborder">
+       <ul class="tabs">
+        <li>
+         <a href="#tab1">آخر الأحكام</a>
+        </li>
+         
+        <li>
+         <a href="#tab2">أحكام هام</a>
+        </li>
+       </ul>
+       <article id="tab1" class="tab-content homelist">
+        <ul>
+         <li>المحكمة الدستورية العليا المصرية تقضي بعدم دستورية قانون تقسيم
+             الدوائر الانتخابية</li>
+          
+         <li>رفض دعوى بطلان المواد 3 و 4 و 5 من قانون مجلس النواب</li>
+          
+         <li>المحكمة الدستورية العليا تقضى بعدم دستورية تعديل قانون الأسلحة</li>
+          
+         <li>المحكمة الدستورية العليا تقضي بعدم قبول الطعن على نص المادة 25 بشأن
+             قانون مباشرة الحقوق السياسية</li>
+        </ul>
+       </article>
+        
+       <article id="tab2" class="tab-content homelist">
+        <ul>
+         <li>رفض دعوى بطلان المواد 3 و 4 و 5 من قانون مجلس النواب</li>
+          
+         <li>المحكمة الدستورية العليا تقضى بعدم دستورية تعديل قانون الأسلحة</li>
+          
+         <li>المحكمة الدستورية العليا المصرية تقضي بعدم دستورية قانون تقسيم
+             الدوائر الانتخابية</li>
+          
+         <li>المحكمة الدستورية العليا تقضي بعدم قبول الطعن على نص المادة 25 بشأن
+             قانون مباشرة الحقوق السياسية</li>
+        </ul>
+       </article>
+      </div>
+     </div>
+     <div class="col3">
+      <div class="colortitle">
+       <h5>
+        <img src="../images/calender_icon.png"></img>
+        تواريخ هامة
+       </h5>
+      </div>
+      <div id='calendar'></div>
+     </div>
+    </section>
+    <div class="colortitle golden">
+     <h5>
+      <img src="../images/graph_icon.png"></img>
+      قضايا المحكمة الدستورية العليا وتوزيعها الزمني
+     </h5>
+    </div>
+    <div class="boxborder">
+     <section class="columns">
+      <div class="col34" id="container" style="height: 300px;"></div>
+      <div class="col4">
+       <h1 class="cgolden">449</h1>
+       <p class="stats">أحكام دستورية</p>
+       <h1 class="corange">414</h1>
+       <p class="stats">أحكام المحكمة العليا</p>
+      </div>
+     </section>
+    </div>
+   </section>
+    
+   <footer>
+    <section class="widgets">
+     <article>
+      <img src="../images/footer_logo.png"></img>
+     </article>
+     <article class="widget_links">
+      <h3>
+       <span>عن المحكمة</span>
+      </h3>
+      <ul>
+       <li>
+        <a href="#">التعريف بالمحكمة</a>
+       </li>
+        
+       <li>
+        <a href="#">لمحة تاريخية</a>
+       </li>
+        
+       <li>
+        <a href="#">مبني المحكمة</a>
+       </li>
+        
+       <li>
+        <a href="#">البوم الصور</a>
+       </li>
+        
+       <li>
+        <a href="#">كلمة رئيس المحكمة</a>
+       </li>
+        
+       <li>
+        <a href="#">السادة الأعضاء</a>
+       </li>
+      </ul>
+     </article>
+     <article class="widget_links">
+      <h3>
+       <span>الأحكام الدستورية</span>
+      </h3>
+      <ul>
+       <li>
+        <a href="#">أحكام المحكمة العليا</a>
+       </li>
+        
+       <li>
+        <a href="#">أحكام المحكمة الدستورية</a>
+       </li>
+        
+       <li>
+        <a href="#">بحـــث</a>
+       </li>
+        
+       <li>
+        <a href="#">بحث موضوعي بالتشريعات</a>
+       </li>
+        
+       <li>
+        <a href="#">بحث موضوعي بالمجموعات</a>
+       </li>
+      </ul>
+     </article>
+     <article class="widget_links">
+      <h3>
+       <span>الجلسات</span>
+      </h3>
+      <ul>
+       <li>
+        <a href="#">جلسات هيئة المفوضين</a>
+       </li>
+        
+       <li>
+        <a href="#">جلسات المحكمة</a>
+       </li>
+        
+       <li>
+        <a href="#">بحـــث</a>
+       </li>
+      </ul>
+     </article>
+     <article class="widget_links">
+      <h3>
+       <span>المجلة</span>
+      </h3>
+      <ul>
+       <li>
+        <a href="#">أعداد المجلة</a>
+       </li>
+        
+       <li>
+        <a href="#">بحوث ومقالات</a>
+       </li>
+        
+       <li>
+        <a href="#">بحث في المجلة</a>
+       </li>
+      </ul>
+     </article>
+    </section>
+    <section class="bottom">
+     <p>
+      جميع الحقوق محفوظة &copy; 2015 للمحكمة الدستورية العليا - جمهورية مصر
+      العربية &nbsp; | &nbsp; تطوير الشركة الهندسية للأنظمة المتكاملة 
+      <a href="#">EIS</a>
+     </p>
+     <p></p>
+     <nav class="social">
+      <ul>
+       <li>
+        <a href="#" class="facebook">فيسبوك</a>
+       </li>
+        
+       <li>
+        <a href="#" class="twitter">تويتر</a>
+       </li>
+        
+       <li>
+        <a href="#" class="youtube">يوتيوب</a>
+       </li>
+      </ul>
+     </nav>
+    </section>
+   </footer>
+  </div>
+  <!--<script type="text/javascript" src="js/jquery.js"></script>-->
+  <!--[if lt IE 9]>
+		<script type="text/javascript" src="js/ie.js"></script>
+	<![endif]-->
+	 
+
+   
+  </f:view>
+</jsp:root>

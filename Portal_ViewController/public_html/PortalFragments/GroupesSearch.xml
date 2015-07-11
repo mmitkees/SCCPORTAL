@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="GroupesSearch">
+    <default-activity id="__1">GroupesSearch1</default-activity>
+    <view id="GroupesSearch1">
+      <page>/Portal_Pages/PagesFragments/GroupesSearch.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

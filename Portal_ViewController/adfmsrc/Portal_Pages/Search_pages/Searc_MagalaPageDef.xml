@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Searc_MagalaPageDef"
+                Package="Portal_Pages.Search_pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchMagala1.variablesMap.MagalaNum"
+                     Name="ExecuteWithParams_MagalaNum" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchMagala1.variablesMap.AuthorName"
+                     Name="ExecuteWithParams_AuthorName" IsQueriable="false"/>
+    </variableIterator>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="SearchMagala1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="SearchMagala1Iterator"/>
+    <taskFlow id="Search_Magala1"
+              taskFlowId="/PortalFragments/Search_Magala.xml#Search_Magala"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <list IterBinding="variables" id="AuthorName1" DTSupportsMRU="true"
+          StaticList="false" ListIter="SearchMagala1Iterator" NullValueId="all"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_AuthorName"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Authorname"/>
+      </ListDisplayAttrNames>
+    </list>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

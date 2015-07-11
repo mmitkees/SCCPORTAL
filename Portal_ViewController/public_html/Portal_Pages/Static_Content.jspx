@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_Portal_Pages_Static_Content.d1}">
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_Portal_Pages_Static_Content.f1}">
+        <af:pageTemplate viewId="/Portal_Templates/Main_Template.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+          <f:facet name="Main_Content">
+          
+          <af:inlineFrame id="iframe_static_container" 
+                          source="/Static_Content/Dostor/Html/constitutionPublish.html"
+                          inlineStyle="width:95%; height:1000px; direction:rtl; overflow:scroll;">
+                          
+                          </af:inlineFrame>
+                        
+                          
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Portal_Pages_Static_Content-->
+</jsp:root>

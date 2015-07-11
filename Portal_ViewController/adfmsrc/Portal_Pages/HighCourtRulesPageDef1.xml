@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="HighCourtRulesPageDef1"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="HighCourtRules1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="HighCourtRules1Iterator" ChangeEventPolicy="ppr"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="HighCourtRules1.variablesMap.courtyear"
+                     Name="ExecuteWithParams_courtyear" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="HighCourtRules1.variablesMap.ruletype"
+                     Name="ExecuteWithParams_ruletype" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="HighCourtRules1.variablesMap.statuscode"
+                     Name="ExecuteWithParams_statuscode" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="HighCourtRules1.variablesMap.datefrom"
+                     Name="ExecuteWithParams_datefrom" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="HighCourtRules1.variablesMap.dateto"
+                     Name="ExecuteWithParams_dateto" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="HighCourtRules1.variablesMap.rulewarding"
+                     Name="ExecuteWithParams_rulewarding" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="RuleSubjectTypesLOV_VO_HS1" RangeSize="-1"
+              DataControl="AppModuleAM_HSDataControl"
+              id="RuleSubjectTypesLOV_VO_HS1Iterator"/>
+    <iterator Binds="RuleStatus1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl" id="RuleStatus1Iterator"/>
+    <iterator Binds="rulewarding1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="rulewarding1Iterator"/>
+    <searchRegion Binds="HighCourtRules1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="HighCourtRules1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="HighCourtRules1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="courtyear" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_courtyear}"/>
+      <NamedData NDName="ruletype" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_ruletype}"/>
+      <NamedData NDName="statuscode" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_statuscode}"/>
+      <NamedData NDName="datefrom" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams_datefrom}"/>
+      <NamedData NDName="dateto" NDType="oracle.jbo.domain.Date"
+                 NDValue="${bindings.ExecuteWithParams_dateto}"/>
+      <NamedData NDName="rulewarding" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_rulewarding}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="courtyear">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_courtyear"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="ruletype" DTSupportsMRU="true"
+          StaticList="false" ListIter="RuleSubjectTypesLOV_VO_HS1Iterator"
+          NullValueId="all" NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_ruletype"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Code"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="statuscode" DTSupportsMRU="true"
+          StaticList="false" ListIter="RuleStatus1Iterator"
+          NullValueId="all" NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_statuscode"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Code"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="variables" id="datefrom">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_datefrom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="dateto">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_dateto"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="rulewarding" DTSupportsMRU="true"
+          StaticList="false" ListIter="rulewarding1Iterator" NullValueId="all"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_rulewarding"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Code"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="HighCourtRules1Iterator" id="HighCourtRules1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.HighCourtRulesVO_SD"
+                      Name="HighCourtRules10">
+        <AttrNames>
+          <Item Value="RuleNumber"/>
+          <Item Value="Subjecttypename"/>
+          <Item Value="GetrulestatusnameCasesRuleStatusCode"/>
+          <Item Value="RuleDate"/>
+          <Item Value="Wardingname"/>
+          <Item Value="KeyName"/>
+          <Item Value="RuleNtext"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="HighCourtRules1Iterator" id="RuleNtext">
+      <AttrNames>
+        <Item Value="RuleNtext"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="HighCourtRules1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="HighCourtRules1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="HighCourtRules1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="HighCourtRules1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

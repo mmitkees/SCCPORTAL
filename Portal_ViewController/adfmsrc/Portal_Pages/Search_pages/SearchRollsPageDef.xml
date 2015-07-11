@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SearchRollsPageDef"
+                Package="Portal_Pages.Search_pages">
+  <parameters/>
+  <executables>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="SearchRollsVO_SD1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="CasesSearchVO_SD1Iterator"/>
+    <taskFlow id="SearchRolls1"
+              taskFlowId="/PortalFragments/SearchRolls.xml#SearchRolls"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CasesSearchVO_SD1Iterator" id="CasesSearchVO_SD1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.SearchRollsVO_SD"
+                      Name="CasesSearchVO_SD10">
+        <AttrNames>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleDate"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="RollStatus"/>
+          <Item Value="Claimeds"/>
+          <Item Value="Defendents"/>
+          <Item Value="Subject"/>
+          <Item Value="Decree"/>
+          <Item Value="JudgeDone"/>
+          <Item Value="PostponeDate"/>
+          <Item Value="CourtTypeName"/>
+          <Item Value="StatusName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

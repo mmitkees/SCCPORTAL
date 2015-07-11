@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="GroupesSearchPageDef1"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="GroupesSearch1.variablesMap.PartNumber"
+                     Name="ExecuteWithParams_PartNumber" IsQueriable="false"/>
+    </variableIterator>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="GroupesSearch1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="GroupesSearch1Iterator"/>
+    <iterator Binds="CourtTypes2" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="CourtTypes2Iterator"/>
+    <searchRegion Binds="GroupesSearch1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="GroupesSearch1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="GroupesSearch1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="PartNumber"
+                 NDValue="${backingBeanScope.GroupesSearchBacking.num}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </action>
+    <attributeValues IterBinding="variables" id="PartNumber">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_PartNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CourtTypes2Iterator" id="CourtTypes2">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CourtTypesVO_SD"
+                      Name="CourtTypes20">
+        <AttrNames>
+          <Item Value="Name"/>
+          <Item Value="Code"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="PartsLKP"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="scc.portal.model.viewObject.PartsLKPVO_SD"
+                      Name="CourtTypes21">
+        <AttrNames>
+          <Item Value="PartId"/>
+          <Item Value="CourtTypeCode"/>
+          <Item Value="PartNumber"/>
+          <Item Value="IntervalFrom"/>
+          <Item Value="IntervalTo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CourtTypes2Iterator" id="CourtTypes21">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CourtTypesVO_SD"
+                      Name="CourtTypes210">
+        <AttrNames>
+          <Item Value="Code"/>
+          <Item Value="Name"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="PartsLKP"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="scc.portal.model.viewObject.PartsLKPVO_SD"
+                      Name="CourtTypes211">
+        <AttrNames>
+          <Item Value="PartId"/>
+          <Item Value="CourtTypeCode"/>
+          <Item Value="IntervalFrom"/>
+          <Item Value="IntervalTo"/>
+          <Item Value="PartNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="GroupesSearch1Iterator" id="CreateWithParams"
+            RequiresUpdateModel="true" Action="createWithParams"/>
+    <tree IterBinding="GroupesSearch1Iterator" id="GroupesSearch1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.GroupesSearchVO_SD"
+                      Name="GroupesSearch10">
+        <AttrNames>
+          <Item Value="CaseInfo"/>
+          <Item Value="BriefLawItems"/>
+          <Item Value="BriefSubject"/>
+          <Item Value="Rulewarding"/>
+          <Item Value="RuleDate"/>
+          <Item Value="Law"/>
+          <Item Value="VolumeNo"/>
+          <Item Value="PartPageNo"/>
+          <Item Value="Base"/>
+          <Item Value="Notes"/>
+          <Item Value="JournalVersionNum"/>
+          <Item Value="JournalPublishDate"/>
+          <Item Value="IntervalText"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

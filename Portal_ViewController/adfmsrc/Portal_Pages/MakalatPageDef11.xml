@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="MakalatPageDef11"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Magala2" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="Magala2Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Magala2Iterator" id="Magala2">
+      <nodeDefinition DefName="scc.portal.model.viewObject.MagalaVO_SD"
+                      Name="Magala20">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Namear"/>
+          <Item Value="Fileurl"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="Makal"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="scc.portal.model.viewObject.MakalVO_SD"
+                      Name="Magala21">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Makalurl"/>
+          <Item Value="Namear"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

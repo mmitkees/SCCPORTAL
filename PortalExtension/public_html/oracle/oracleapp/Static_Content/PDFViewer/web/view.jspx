@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" binding="#{backingBeanScope.viewer.d1}">
+      <af:form id="f1" binding="#{backingBeanScope.viewer.f1}">
+      <table border="1">
+        <tr>
+            <td width="100" valign="top">
+              <af:commandLink text="PDF1" id="cl2" shortDesc="/PDF Viewer/web/viewer.html?file=bylaw.pdf#page=10"
+                              binding="#{backingBeanScope.viewer.cl2}"
+                              action="#{backingBeanScope.viewer.cl1_action}"
+                              actionListener="#{backingBeanScope.viewer.actionPerformed}"
+                              partialSubmit="true"/>
+              <af:commandLink text="PDF2" id="cl1" shortDesc="/PDF Viewer/web/viewer.html?file=compressed.tracemonkey-pldi-09.pdf#page=2"
+                              binding="#{backingBeanScope.viewer.cl1}"
+                              action="#{backingBeanScope.viewer.cl1_action}"
+                              actionListener="#{backingBeanScope.viewer.actionPerformed}"
+                              partialSubmit="true"/>
+            </td>
+            <td width="1000"><af:inlineFrame id="aa" source="/PDF Viewer/web/viewer.html?file=bylaw.pdf#page=10"
+                      inlineStyle="width:1000.0px; height:900px;"
+                                            binding="#{backingBeanScope.viewer.aa}"
+                                             partialTriggers="cl2 cl1"/></td>
+        </tr>
+        <tr>
+        <td colspan="2">
+                <h:outputText id="ot1"
+                              value="#{backingBeanScope.viewer.someHtml}" escape="false" />
+        </td>
+        </tr>
+      </table>      
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:viewer-->
+</jsp:root>

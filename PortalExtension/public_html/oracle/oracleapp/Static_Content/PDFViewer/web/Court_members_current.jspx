@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_PDF_Viewer_web_Court_members_current.d1}">
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_PDF_Viewer_web_Court_members_current.f1}">
+                <h:outputText id="ot1"
+                              value="#{backingBeanScope.backing_PDF_Viewer_web_Court_members_current.someHtml}" escape="false" />
+        
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_PDF_Viewer_web_Court_members_current-->
+</jsp:root>

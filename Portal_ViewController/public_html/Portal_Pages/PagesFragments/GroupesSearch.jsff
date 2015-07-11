@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+
+      <af:panelSplitter id="ps1" styleClass="AFStretchWidth"
+                        splitterPosition="215" inlineStyle="height:550.0px;"
+                        binding="#{backingBeanScope.GroupesSearchBacking.ps1}">
+        <f:facet name="first">
+          <af:panelGroupLayout id="pgl1"
+                               binding="#{backingBeanScope.GroupesSearchBacking.pgl1}">
+            <af:tree value="#{bindings.CourtTypes2.treeModel}" var="node"
+                     selectionListener="#{GroupesSearchBB.NodeSeletionListener}"
+                     rowSelection="single" id="t2"
+                     shortDesc="الفترة من #{node.IntervalFrom} إلى #{node.IntervalTo}"
+                     binding="#{backingBeanScope.GroupesSearchBacking.t2}">
+              <f:facet name="nodeStamp">
+                <af:commandLink text="#{node.Name}#{node.PartNumber}"
+                                shortDesc="الفترة من #{node.IntervalFrom} إلى #{node.IntervalTo}"
+                                id="b1"/>
+              </f:facet>
+            </af:tree>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelGroupLayout id="pgl2"
+                               binding="#{backingBeanScope.GroupesSearchBacking.pgl2}">
+            <af:table value="#{bindings.GroupesSearch1.collectionModel}"
+                      var="row" styleClass="AFStretchWidth"
+                      rows="#{bindings.GroupesSearch1.rangeSize}"
+                      emptyText="#{bindings.GroupesSearch1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.GroupesSearch1.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.GroupesSearch1Query.queryDescriptor}"
+                      queryListener="#{bindings.GroupesSearch1Query.processQuery}"
+                      varStatus="vs"
+                      selectedRowKeys="#{bindings.GroupesSearch1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.GroupesSearch1.collectionModel.makeCurrent}"
+                      rowSelection="single"
+                      binding="#{backingBeanScope.GroupesSearchBacking.t1}"
+                      id="t1">
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.CaseInfo.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.CaseInfo.label}"
+                         id="c10">
+                <af:outputText value="#{row.CaseInfo}" id="ot8"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.BriefLawItems.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.BriefLawItems.label}"
+                         id="c3">
+                <af:outputText value="#{row.BriefLawItems}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.BriefSubject.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.BriefSubject.label}"
+                         id="c6">
+                <af:outputText value="#{row.BriefSubject}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.Rulewarding.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.Rulewarding.label}"
+                         id="c5">
+                <af:outputText value="#{row.Rulewarding}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.RuleDate.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.RuleDate.label}"
+                         id="c11">
+                <af:outputText value="#{row.RuleDate}" id="ot9"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.Law.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.Law.label}"
+                         id="c1">
+                <af:outputText value="#{row.Law}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.VolumeNo.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.VolumeNo.label}"
+                         id="c9">
+                <af:outputText value="#{row.VolumeNo}" id="ot13">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.GroupesSearch1.hints.VolumeNo.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.PartPageNo.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.PartPageNo.label}"
+                         id="c12">
+                <af:outputText value="#{row.PartPageNo}" id="ot10">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.GroupesSearch1.hints.PartPageNo.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.Base.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.Base.label}"
+                         id="c2">
+                <af:outputText value="#{row.Base}" id="ot12">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.GroupesSearch1.hints.Base.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.Notes.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.Notes.label}"
+                         id="c8">
+                <af:outputText value="#{row.Notes}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.JournalVersionNum.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.JournalVersionNum.label}"
+                         id="c4">
+                <af:outputText value="#{row.JournalVersionNum}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.GroupesSearch1.hints.JournalPublishDate.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.GroupesSearch1.hints.JournalPublishDate.label}"
+                         id="c7">
+                <af:outputText value="#{row.JournalPublishDate}" id="ot5"/>
+              </af:column>
+            </af:table>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelSplitter>
+
+</jsp:root>

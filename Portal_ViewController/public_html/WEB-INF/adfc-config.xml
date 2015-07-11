@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <metadata-resource>/PortalFragments/Search_Magala.xml</metadata-resource>
+  <managed-bean id="__14">
+    <managed-bean-name id="__15">backing_Portal_Pages_Static_content</managed-bean-name>
+    <managed-bean-class id="__16">scc.portal.view.backing.Portal_Pages.Static_content</managed-bean-class>
+    <managed-bean-scope id="__13">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Portal_Pages/Static_content.jspx-->
+  </managed-bean>
+ 
+  
+  <managed-bean id="__3">
+    <managed-bean-name id="__1">backing_Court_Members_Current</managed-bean-name>
+    <managed-bean-class id="__2">scc.portal.view.backing.Court_Members_Current</managed-bean-class>
+    <managed-bean-scope id="__4">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Portal_Pages/Court_Members_Current.jspx-->
+  </managed-bean>
+  <managed-bean id="__24">
+    <managed-bean-name id="__21">Court_Members_Current</managed-bean-name>
+    <managed-bean-class id="__23">scc.portal.view.backing.Court_Members_Current</managed-bean-class>
+    <managed-bean-scope id="__22">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__27">
+    <managed-bean-name id="__26">backing_test_table_bind</managed-bean-name>
+    <managed-bean-class id="__25">scc.portal.view.backing.Test_table_bind</managed-bean-class>
+    <managed-bean-scope id="__28">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1test_table_bind.jspx-->
+  </managed-bean>
+  <managed-bean id="__33">
+    <managed-bean-name id="__34">backing_Mofwaddeen</managed-bean-name>
+    <managed-bean-class id="__36">scc.portal.view.backing.Mofwaddeen</managed-bean-class>
+    <managed-bean-scope id="__35">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Portal_Pages/CurrentMofwaddeenChairmen.jspx-->
+  </managed-bean>
+  <managed-bean id="__38">
+    <managed-bean-name id="__39">MofwadeenBB</managed-bean-name>
+    <managed-bean-class id="__37">scc.portal.view.backing.MofwadeenBB</managed-bean-class>
+    <managed-bean-scope id="__40">backingBean</managed-bean-scope>
+  </managed-bean>
+ 
+  <managed-bean id="__48">
+    <managed-bean-name id="__45">backing_Portal_Pages_Dostors</managed-bean-name>
+    <managed-bean-class id="__46">scc.portal.view.backing.Portal_Pages.Dostors</managed-bean-class>
+    <managed-bean-scope id="__47">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1Portal_Pages/Dostors.jspx-->
+  </managed-bean>
+  <managed-bean id="__53">
+    <managed-bean-name id="__56">DostorsBB</managed-bean-name>
+    <managed-bean-class id="__55">scc.portal.view.backing.Portal_Pages.DostorsBB</managed-bean-class>
+    <managed-bean-scope id="__54">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__57">
+    <managed-bean-name id="__60">NewDostor</managed-bean-name>
+    <managed-bean-class id="__59">scc.portal.view.backing.NewDostor</managed-bean-class>
+    <managed-bean-scope id="__58">backingBean</managed-bean-scope>
+  </managed-bean>
+  
+  <managed-bean id="__66">
+    <managed-bean-name id="__68">MagalBBV2</managed-bean-name>
+    <managed-bean-class id="__67">scc.portal.view.backing.MagalBBV2</managed-bean-class>
+    <managed-bean-scope id="__65">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__50">
+    <managed-bean-name id="__52">MakalatBBV2</managed-bean-name>
+    <managed-bean-class id="__51">scc.portal.view.backing.MakalatBBV2</managed-bean-class>
+    <managed-bean-scope id="__49">backingBean</managed-bean-scope>
+  </managed-bean>
+ 
+  <managed-bean id="__72">
+    <managed-bean-name id="__71">judjements_search</managed-bean-name>
+    <managed-bean-class id="__69">scc.portal.view.backing.judjements_search</managed-bean-class>
+    <managed-bean-scope id="__70">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__723">
+    <managed-bean-name id="__703">dostorv2</managed-bean-name>
+    <managed-bean-class id="__693">scc.portal.view.backing.doctorv2</managed-bean-class>
+    <managed-bean-scope id="__713">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__78">
+    <managed-bean-name id="__80">CourtRules</managed-bean-name>
+    <managed-bean-class id="__77">scc.portal.view.backing.CourtRules</managed-bean-class>
+    <managed-bean-scope id="__79">backingBean</managed-bean-scope>
+  </managed-bean>
+ 
+  <managed-bean id="__86">
+    <managed-bean-name id="__88">GroupesSearchBacking</managed-bean-name>
+    <managed-bean-class id="__87">scc.portal.view.backing.GroupesSearchBacking</managed-bean-class>
+    <managed-bean-scope id="__85">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__91">
+    <managed-bean-name id="__90">MofawadeenRollsBB</managed-bean-name>
+    <managed-bean-class id="__92">scc.portal.view.backing.MofawadeenRollsBB</managed-bean-class>
+    <managed-bean-scope id="__89">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__94">
+    <managed-bean-name id="__96">CourtRollsBB</managed-bean-name>
+    <managed-bean-class id="__93">scc.portal.view.backing.CourtRollsBB</managed-bean-class>
+    <managed-bean-scope id="__95">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name id="__6">WelcomeBack</managed-bean-name>
+    <managed-bean-class id="__7">scc.portal.view.backing.WelcomeBack</managed-bean-class>
+    <managed-bean-scope id="__8">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name id="__10">PreviousCotrolBB</managed-bean-name>
+    <managed-bean-class id="__11">scc.portal.view.backing.PreviousCotrolBB</managed-bean-class>
+    <managed-bean-scope id="__12">backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__100">
+    <managed-bean-name id="__97">PortalHome</managed-bean-name>
+    <managed-bean-class id="__99">scc.portal.view.backing.PortalHome</managed-bean-class>
+    <managed-bean-scope id="__98">view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__101">
+    <managed-bean-name id="__104">WelcomeTest</managed-bean-name>
+    <managed-bean-class id="__102">scc.portal.view.backing.WelcomeTest</managed-bean-class>
+    <managed-bean-scope id="__103">view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__105">
+    <managed-bean-name id="__107">PortalHomeBB</managed-bean-name>
+    <managed-bean-class id="__106">scc.portal.view.backing.PortalHomeBB</managed-bean-class>
+    <managed-bean-scope id="__108">backingBean</managed-bean-scope>
+  </managed-bean>
+ 
+</adfc-config>

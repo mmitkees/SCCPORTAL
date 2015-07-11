@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="MofwaddeenPageDef"
+                Package="scc.portal.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Mofwadeen1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="Mofwadeen1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Mofwadeen1Iterator" id="Mofwadeen1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.MofwadeenVO_SD"
+                      Name="Mofwadeen10">
+        <AttrNames>
+          <Item Value="PrevPos"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

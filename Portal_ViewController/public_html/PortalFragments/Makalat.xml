@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Makalat">
+    <default-activity id="__1">Makalat1</default-activity>
+    <view id="Makalat1">
+      <page>/Portal_Pages/PagesFragments/Makalat.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

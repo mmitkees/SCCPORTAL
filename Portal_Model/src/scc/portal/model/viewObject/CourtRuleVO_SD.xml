@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CourtRuleVO_SD"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="scc.portal.model.viewObject.CourtRuleVO_SD_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="courtyear"
+    Kind="where"
+    Type="oracle.jbo.domain.Number">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['CourtYear']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="ruletype"
+    Kind="where"
+    Type="oracle.jbo.domain.Number">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['RollType']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="statuscode"
+    Kind="where"
+    Type="oracle.jbo.domain.Number">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['statuscode']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="datefrom"
+    Kind="where"
+    Type="oracle.jbo.domain.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['datefrom']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="dateto"
+    Kind="where"
+    Type="oracle.jbo.domain.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['PeriodToDate']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="rulewarding"
+    Kind="where"
+    Type="oracle.jbo.domain.Number">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['Rule_Warding']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery>
+    <![CDATA[SELECT cases.rule_number ,cases.court_year,
+getrulessubjecttypename(cases.rule_subject_type_code) subjectTypeName,
+getrulestatusname(cases.rule_status_code),
+rules_insert.RULE_DATE,
+rules_insert.RULE_NTEXT,
+GETWARDINGNAME(rules_rules_warding.RULE_WARDING_CODE)  as WARDINGNAME,
+GETRULES_KEY_NAME(rule_key.rule_key_code) as KEY_NAME
+FROM RULES_INSERT join cases on rules_insert.case_id = cases.case_id
+left outer join  rules_rules_warding on rules_insert .id = rules_rules_warding.id 
+left outer join RULE_KEY on rules_insert.id = RULE_KEY .id
+where cases.court_type_code = 2 and 
+     cases.court_year= nvl(:courtyear,37) and 
+     cases.rule_subject_type_code = nvl(:ruletype,cases.rule_subject_type_code) and
+     cases.rule_status_code=nvl(:statuscode,cases.rule_status_code) and
+     rules_insert.RULE_DATE between nvl(:datefrom,TO_DATE('25/05/1850','DD-MM-YYYY')) AND nvl(:dateto,TO_DATE('25/05/2100','DD-MM-YYYY')) and
+     rules_rules_warding.RULE_WARDING_CODE = nvl(:rulewarding,rules_rules_warding.RULE_WARDING_CODE)]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="RuleNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="RULE_NUMBER"
+    Expression="RULE_NUMBER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['RollNumber']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CourtYear"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURT_YEAR"
+    Expression="COURT_YEAR"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['CourtYear']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Subjecttypename"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="SUBJECTTYPENAME"
+    Expression="SUBJECTTYPENAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['RuleSubjectTypeName']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GetrulestatusnameCasesRuleStatusCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="GETRULESTATUSNAME(CASES.RULE_STATUS_CODE)"
+    Expression="GETRULESTATUSNAME(CASES.RULE_STATUS_CODE)"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['statuscode']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RuleDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="RULE_DATE"
+    Expression="RULE_DATE"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['RuleDate']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RuleNtext"
+    IsUpdateable="false"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.NClobDomain"
+    ColumnType="NCLOB"
+    AliasName="RULE_NTEXT"
+    Expression="RULE_NTEXT"
+    SQLType="NCLOB">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['RuleNText']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Wardingname"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="WARDINGNAME"
+    Expression="WARDINGNAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['Rule_Warding']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="KeyName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="KEY_NAME"
+    Expression="KEY_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['KeyName']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <XliffBundle
+      id="SCC_MODEL_AR.xlf"/>
+  </ResourceBundle>
+</ViewObject>

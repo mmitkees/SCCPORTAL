@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="HighCourtRulesPageDef"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="HighCourtRules1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="HighCourtRules1Iterator" ChangeEventPolicy="ppr"/>
+    <taskFlow id="HighCourtRules1"
+              taskFlowId="/PortalFragments/HighCourtRules.xml#HighCourtRules"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <action IterBinding="HighCourtRules1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="HighCourtRules1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="HighCourtRules1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="HighCourtRules1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

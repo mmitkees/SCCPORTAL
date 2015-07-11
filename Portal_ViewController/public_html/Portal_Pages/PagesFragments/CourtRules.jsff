@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:pageTemplate viewId="/Portal_Templates/Main_Template.jspx"
+                   value="#{bindings.pageTemplateBinding}" id="pt1">
+    <f:facet name="Main_Content">
+      <af:panelSplitter id="ps1" styleClass="AFStretchWidth"
+                        splitterPosition="255"
+                        binding="#{backingBeanScope.CourtRules.ps1}"
+                        inlineStyle="height:500.0px;">
+        <f:facet name="first">
+          <af:group id="g1" binding="#{backingBeanScope.CourtRules.g1}">
+            <af:inputText value="#{bindings.courtyear.inputValue}"
+                          label="#{bindings.courtyear.hints.label}"
+                          required="#{bindings.courtyear.hints.mandatory}"
+                          columns="#{bindings.courtyear.hints.displayWidth}"
+                          maximumLength="#{bindings.courtyear.hints.precision}"
+                          shortDesc="#{bindings.courtyear.hints.tooltip}"
+                          id="it1" binding="#{backingBeanScope.CourtRules.it1}">
+              <f:validator binding="#{bindings.courtyear.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.courtyear.format}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.ruletype.inputValue}"
+                                label="#{bindings.ruletype.label}"
+                                required="#{bindings.ruletype.hints.mandatory}"
+                                shortDesc="#{bindings.ruletype.hints.tooltip}"
+                                id="soc1"
+                                binding="#{backingBeanScope.CourtRules.soc1}">
+              <f:selectItems value="#{bindings.ruletype.items}" id="si1"
+                             binding="#{backingBeanScope.CourtRules.si1}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.statuscode.inputValue}"
+                                label="#{bindings.statuscode.label}"
+                                required="#{bindings.statuscode.hints.mandatory}"
+                                shortDesc="#{bindings.statuscode.hints.tooltip}"
+                                id="soc2"
+                                binding="#{backingBeanScope.CourtRules.soc2}">
+              <f:selectItems value="#{bindings.statuscode.items}" id="si2"
+                             binding="#{backingBeanScope.CourtRules.si2}"/>
+            </af:selectOneChoice>
+            <af:inputDate value="#{bindings.datefrom.inputValue}"
+                          label="#{bindings.datefrom.hints.label}"
+                          required="#{bindings.datefrom.hints.mandatory}"
+                          shortDesc="#{bindings.datefrom.hints.tooltip}"
+                          id="id1" binding="#{backingBeanScope.CourtRules.id1}">
+              <f:validator binding="#{bindings.datefrom.validator}"/>
+              <af:convertDateTime pattern="#{bindings.datefrom.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.dateto.inputValue}"
+                          label="#{bindings.dateto.hints.label}"
+                          required="#{bindings.dateto.hints.mandatory}"
+                          shortDesc="#{bindings.dateto.hints.tooltip}" id="id2"
+                          binding="#{backingBeanScope.CourtRules.id2}">
+              <f:validator binding="#{bindings.dateto.validator}"/>
+              <af:convertDateTime pattern="#{bindings.dateto.format}"/>
+            </af:inputDate>
+            <af:selectOneChoice value="#{bindings.rulewarding.inputValue}"
+                                label="#{bindings.rulewarding.label}"
+                                required="#{bindings.rulewarding.hints.mandatory}"
+                                shortDesc="#{bindings.rulewarding.hints.tooltip}"
+                                id="soc3"
+                                binding="#{backingBeanScope.CourtRules.soc3}">
+              <f:selectItems value="#{bindings.rulewarding.items}" id="si3"
+                             binding="#{backingBeanScope.CourtRules.si3}"/>
+            </af:selectOneChoice>
+            <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}"
+                              text="بحث الأحكام"
+                              disabled="#{!bindings.ExecuteWithParams.enabled}"
+                              id="cb1"
+                              binding="#{backingBeanScope.CourtRules.cb1}"/>
+          </af:group>
+        </f:facet>
+        <f:facet name="second">
+          <af:group id="g2" binding="#{backingBeanScope.CourtRules.g2}">
+            <af:table value="#{bindings.CourtRule1.collectionModel}" var="row"
+                      rows="#{bindings.CourtRule1.rangeSize}"
+                      emptyText="#{bindings.CourtRule1.viewable ? 'لا توجد بيانات .' : 'Access Denied.'}"
+                      fetchSize="#{bindings.CourtRule1.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.CourtRule1Query.queryDescriptor}"
+                      queryListener="#{bindings.CourtRule1Query.processQuery}"
+                      varStatus="vs"
+                      selectedRowKeys="#{bindings.CourtRule1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.CourtRule1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" styleClass="AFStretchWidth"
+                      partialTriggers="::cb1 "
+                      binding="#{backingBeanScope.CourtRules.t1}">
+              <af:column sortProperty="#{bindings.CourtRule1.hints.RuleNumber.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="49px"
+                         headerText="#{bindings.CourtRule1.hints.RuleNumber.label}"
+                         id="c3">
+                <af:outputText value="#{row.RuleNumber}" id="ot6">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.CourtRule1.hints.RuleNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.CourtRule1.hints.Subjecttypename.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="85px"
+                         headerText="#{bindings.CourtRule1.hints.Subjecttypename.label}"
+                         id="c4">
+                <af:outputText value="#{row.Subjecttypename}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CourtRule1.hints.GetrulestatusnameCasesRuleStatusCode.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="65px"
+                         headerText="#{bindings.CourtRule1.hints.GetrulestatusnameCasesRuleStatusCode.label}"
+                         id="c6">
+                <af:outputText value="#{row.GetrulestatusnameCasesRuleStatusCode}"
+                               id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CourtRule1.hints.RuleDate.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="65px"
+                         headerText="#{bindings.CourtRule1.hints.RuleDate.label}"
+                         id="c1">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.RuleDate}" id="id3"
+                                binding="#{backingBeanScope.CourtRules.id3}"/>
+                </f:facet>
+                <af:outputText value="#{row.RuleDate}" id="ot1">
+                  <af:convertDateTime pattern="#{bindings.CourtRule1.hints.RuleDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.CourtRule1.hints.Wardingname.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="95px"
+                         headerText="#{bindings.CourtRule1.hints.Wardingname.label}"
+                         id="c2">
+                <af:outputText value="#{row.Wardingname}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CourtRule1.hints.KeyName.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="85px"
+                         headerText="#{bindings.CourtRule1.hints.KeyName.label}"
+                         id="c7">
+                <af:outputText value="#{row.KeyName}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.CourtRule1.hints.RuleNtext.name}"
+                         sortable="true" align="center" width="65px"
+                         headerText="#{bindings.CourtRule1.hints.RuleNtext.label}"
+                         id="c5">
+                <af:commandLink text="عرض الحكم" id="cb2" partialSubmit="true"
+                                windowHeight="455">
+                  <af:showPopupBehavior popupId="::p1" triggerType="action"/>
+                </af:commandLink>
+              </af:column>
+            </af:table>
+            <af:popup id="p1" eventContext="launcher"
+                      contentDelivery="lazyUncached"
+                      binding="#{backingBeanScope.CourtRules.p1}">
+              <af:dialog id="d2" type="ok" title="نص الحكم" contentWidth="800"
+                         contentHeight="430" modal="false" resize="on"
+                         binding="#{backingBeanScope.CourtRules.d2}">
+                <af:panelFormLayout id="pfl1"
+                                    binding="#{backingBeanScope.CourtRules.pfl1}">
+                  <af:panelLabelAndMessage label="#{bindings.RuleNtext.hints.label}"
+                                           id="plam1"
+                                           binding="#{backingBeanScope.CourtRules.plam1}">
+                    <af:richTextEditor value="#{bindings.RuleNtext.inputValue}"
+                                       inlineStyle="width:700px; height:400.0px;"
+                                       id="ot3"
+                                       binding="#{backingBeanScope.CourtRules.ot3}"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </af:dialog>
+            </af:popup>
+          </af:group>
+        </f:facet>
+      </af:panelSplitter>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

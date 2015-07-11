@@ -1,0 +1,235 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * Droid Arabic Kufi (Arabic) http://www.google.com/fonts/earlyaccess
+ */
+@import url('http://fonts.googleapis.com/css?family=Droid Arabic Kufi');
+body {  
+  font: 0.813em/1.5em 'Droid Arabic Kufi', sans-serif !important;
+  direction:rtl !important;
+}
+
+h1, h2, h3, h4, h5, h6 {font-family: 'Droid Arabic Kufi';}
+ 
+.boxed header>section.main-header {  
+  background: url(../images/header_bg.jpg) top left no-repeat #fff;
+  direction:rtl;
+}
+
+.top-header{
+  background: url(../images/header_bg.jpg) top left no-repeat #fff;
+  direction:rtl;    
+}
+.langlink {
+  float: left;
+}
+
+
+nav.mainmenu>ul>li {
+  float: right;
+  margin: 0 0px 13px -1px;
+  border-left:none !important;
+  border-right: 1px solid #e3e3e3;  
+}
+nav.mainmenu>ul>li>a {
+  float: right !important;
+  font: 700 1.09em/20px 'Droid Arabic Kufi', sans-serif !important;
+  padding: 0 18px !important;
+}
+nav.mainmenu>ul>li:hover>a { color: #cc9900; padding: 0 18px !important;}
+
+header nav>ul ul {
+  left: auto !important;
+  right: 0 !important;   
+  font-family: 'Droid Arabic Kufi',sans-serif !important;
+}
+header nav>ul ul ul {
+  left: auto !important;
+  right: 130px !important;   
+  font-family: 'Droid Arabic Kufi',sans-serif !important;
+}
+
+h5 { 
+  font: 700 1.1em 'Droid Arabic Kufi',sans-serif;
+}
+
+.colortitle h5 {
+  margin: 0 10px !important;
+}
+
+h4 {
+  font: 700 1.2em 'Droid Arabic Kufi',sans-serif;
+}
+.slider4 {
+  padding: 0 0 0 20px !important;  
+}
+.slider4 article>div {
+  float: right !important;
+  margin: 0 0 0 20px !important;
+}
+.slider4 article {
+  left: auto !important;
+  right:0 !important; 
+ 
+}
+
+.slider4 h3, .slider4 p {
+  margin-right: auto !important;
+  margin-left: 10px !important;
+  line-height:24px !important;
+}
+.slider4 p a {
+  float: left !important;
+  font: 1em 'Droid Arabic Kufi',sans-serif !important;
+}
+
+
+.columns>.col23 {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+.columns>article, .columns>div, .columns>section { 
+  margin: 0 2% 20px 0 !important;
+}
+
+ul.tabs li {
+  float: right !important;
+}
+
+ul.tabs li a {
+  float: right;  
+  font: 700 1.231em/35px 'Droid Arabic Kufi',sans-serif !important;
+}
+.homelist ul li {
+  margin: 1.5em  2em 1.5em 0 !important;
+  font: 1.15em/1.5em 'Droid Arabic Kufi', sans-serif !important;
+}
+
+.fc-rtl .fc-basic-view .fc-day-number {
+  text-align: center !important;
+}
+#calendar h2 {
+	font-family:'Droid Arabic Kufi', sans-serif !important;
+}
+
+columns>h2:first-child, .home section .columns h2:first-child, .home section .latest h2:first-child, .why-us h2 {
+  margin: 0 0 .4em;  
+}
+
+#container{direction:ltr !important; }
+
+
+
+footer {   
+  background: url("../images/footer_bg.jpg") top right no-repeat #A3751F !important;   
+}
+
+footer article {
+    margin: 0 2% 5px 0 !important;   
+}
+
+footer article h3 span {
+	font-family:'Droid Arabic Kufi', sans-serif !important;	
+	padding: 1px 8px !important;
+}
+footer article h3 {   
+  font-size: 1em !important;
+  margin: 0px 10px 0 0 !important;
+}
+footer article:nth-of-type(4n-3) {
+  margin-right: 0 !important;
+}
+footer article ul {
+  margin-left: auto !important;
+  margin-right: 5px !important;
+}
+footer article ul li {
+  margin: 0 2em 0.5em 0 !important;
+   
+}
+footer section.bottom p {
+  float: right !important;  
+  font-family: 'Droid Arabic Kufi', sans-serif !important;
+  font-size:.85em !important;
+  font-weight:bold !important;
+}
+footer nav.social {
+  float: left !important;
+}
+
+.breadcrumb p a {  
+   margin-right: auto !important;
+  padding-right: inherit !important;
+  
+  margin-left: 5px !important;
+  padding-left: 14px !important;
+  
+  background: url("../images/bcrumb-arrow.gif") 0% 50% no-repeat;  
+}
+
+h1:first-child {
+  margin: .5em 0 0.2em !important;
+  font-size: 2.1em !important;
+}
+p {
+  line-height: 1.8em !important;
+  text-align:justify !important;
+}
+
+span.select span.value {    
+  background: url("../../images/select-arrow.gif") left 50% no-repeat;   
+}
+label, button {
+   
+  font-family: 'Droid Arabic Kufi', sans-serif !important;
+}
+
+.form1 .input label, .form2 .input label {   
+  margin: 0 0 0 10px !important;  
+}
+label.radio {
+ 
+  padding-left: inherit !important;
+  padding-right: 15px !important;
+  background: url("../../images/input.png") 23px -38px no-repeat !important;
+   
+}
+label.radio.checked {
+  background-position: 23px -57px !important;
+}
+
+label.checkbox { 
+   
+ padding-left: inherit !important;
+  padding-right: 15px !important;
+  background: url("../../images/input.png") 48px 0 no-repeat !important;
+  
+}
+ label.checkbox.checked {
+  background-position: 48px -19px !important;
+}
+ 
+.columns>.col2:nth-of-type(2n-1) {
+  margin-right: 0 !important;
+}
+
+.form2 label {
+  float: right !important;
+  clear: inherit !important;
+  
+}
+
+ .col2 {
+  overflow: visible !important;
+}
+.form2 input {
+  width: 50% !important;  
+}
+
+table.alt th {  
+  font: 300 1em 'Droid Arabic Kufi',sans-serif !important; 
+}
+
+th, td {
+  text-align: right !important;
+}

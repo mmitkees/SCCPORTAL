@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Search_Magala">
+    <default-activity id="__1">Search_Magala1</default-activity>
+    <view id="Search_Magala1">
+      <page>/Portal_Pages/PagesFragments/Search_Magala.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

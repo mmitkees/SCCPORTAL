@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  
+      <af:panelGroupLayout id="pgl1"
+                           binding="#{backingBeanScope.WelcomeBack.pgl1}">
+        <section class="slider4">
+          <div class="slider">
+            <af:outputText value="#{backingBeanScope.WelcomeBack.htmlString}"
+                           id="ot8" escape="false"
+                           binding="#{backingBeanScope.WelcomeBack.ot8}"/>
+          </div>
+        </section>
+        <section class="columns">
+          <div class="col23 tabbed">
+            <div class="colortitle redbrown">
+              <h5>
+                <img src="../../images/balance_icon.png"/>
+                أحكام المحكمة
+              </h5>
+            </div>
+            <div class="boxborder">
+              <af:panelTabbed id="pt2" inlineStyle="width:620px;height:335.0px;"
+                              binding="#{backingBeanScope.WelcomeBack.pt2}">
+                <af:showDetailItem text="آخر الاحكام" id="sdi1"
+                                   binding="#{backingBeanScope.WelcomeBack.sdi1}">
+                  <af:group binding="#{backingBeanScope.WelcomeBack.g1}"
+                            id="g1">
+                    <af:table value="#{bindings.Top_Judjementes_SD1.collectionModel}"
+                              var="row" styleClass="AFStretchWidth"
+                              rows="#{bindings.Top_Judjementes_SD1.rangeSize}"
+                              emptyText="#{bindings.Top_Judjementes_SD1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.Top_Judjementes_SD1.rangeSize}"
+                              rowBandingInterval="0"
+                              filterModel="#{bindings.Top_Judjementes_SD1Query.queryDescriptor}"
+                              queryListener="#{bindings.Top_Judjementes_SD1Query.processQuery}"
+                              varStatus="vs"
+                              selectedRowKeys="#{bindings.Top_Judjementes_SD1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.Top_Judjementes_SD1.collectionModel.makeCurrent}"
+                              rowSelection="single" id="t1"
+                              binding="#{backingBeanScope.WelcomeBack.t1}">
+                      <af:column sortProperty="#{bindings.Top_Judjementes_SD1.hints.Rulewarding.name}"
+                                 filterable="true" sortable="true" align="right"
+                                 width="590px"
+                                 headerText="#{bindings.Top_Judjementes_SD1.hints.Rulewarding.label}"
+                                 id="c1">
+                        <af:outputText value="#{row.Rulewarding}" id="ot2"/>
+                      </af:column>
+                    </af:table>
+                  </af:group>
+                </af:showDetailItem>
+              </af:panelTabbed>
+            </div>
+          </div>
+          <div class="col3">
+            <div class="colortitle">
+              <div style="width:38px;height:25px;display: table-cell;">
+                <img src="../../images/calender_icon2.png"/>
+              </div>
+              <div style="display: table-cell;">
+                <h5>
+                  تواريخ هامة
+                </h5>
+              </div>
+            </div>
+            <div id="calendar"/>
+          </div>
+        </section>
+        <section class="content">
+          <section class="columns"/>
+          <div class="colortitle golden">
+            <h5>
+              <img src="../../images/graph_icon.png"/>
+              أحكام المحكمة الدستورية العليا وتوزيعها الزمني
+            </h5>
+          </div>
+          <div class="boxborder">
+            <section class="columns">
+              <div class="col34" id="container" style="height: 300px;"/>
+              <div class="col4">
+                <br/>
+                <af:table value="#{bindings.RulesCounts1.collectionModel}"
+                          var="row" rows="1"
+                          inlineStyle="height:25.0px;border:0;" fetchSize="1"
+                          rowBandingInterval="0" id="t3"
+                          binding="#{backingBeanScope.WelcomeBack.t3}">
+                  <af:column sortProperty="#{bindings.RulesCounts1.hints.HighDestoriaCourt.name}"
+                             sortable="false" id="c33">
+                    <h:outputLabel value="#{row.HighDestoriaCourt}" id="ot34"
+                                   styleClass="cgolden"
+                                   style="font-size:xx-large;">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.RulesCounts1.hints.HighDestoriaCourt.format}"/>
+                    </h:outputLabel>
+                  </af:column>
+                </af:table>
+                <br/>
+                <p class="stats">
+                  أحكام المحكمة الدستورية العيا
+                </p>
+                <br/>
+                <af:table value="#{bindings.RulesCounts1.collectionModel}"
+                          var="row" rows="1" fetchSize="1"
+                          rowBandingInterval="0" id="t2"
+                          inlineStyle="height:25.0px; border:0"
+                          binding="#{backingBeanScope.WelcomeBack.t2}">
+                  <af:column sortProperty="#{bindings.RulesCounts1.hints.HighCourt.name}"
+                             id="c4">
+                    <h:outputLabel value="#{row.HighCourt}" id="ot3"
+                                   styleClass="corange"
+                                   style="font-size:xx-large;">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.RulesCounts1.hints.HighCourt.format}"/>
+                    </h:outputLabel>
+                  </af:column>
+                </af:table>
+                <br/>
+                <p class="stats">
+                  أحكام المحكمة العليا
+                </p>
+              </div>
+            </section>
+          </div>
+        </section>
+      </af:panelGroupLayout>
+
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:WelcomeBack-->
+</jsp:root>

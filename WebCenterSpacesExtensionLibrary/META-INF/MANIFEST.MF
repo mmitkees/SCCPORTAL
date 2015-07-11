@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 10.0-b23 (Sun Microsystems Inc.)
+Implementation-Title: Oracle WebCenter Spaces Application Extension
+Extension-Name: extend.spaces.webapp
+Extension-List: bpmSpaces
+bpmSpaces-Extension-Name: oracle.bpm.spaces
+Specification-Version: 11.1.6
+Implementation-Version: 11.1.6
+Implementation-Vendor: Oracle

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+ 
+      <af:panelSplitter id="ps2" inlineStyle="width:1000.0px;height:510px"
+                          splitterPosition="233"
+                        binding="#{backingBeanScope.MakalatBBV2.ps2}">
+          <f:facet name="first">
+            <af:panelAccordion id="pa1"
+                               binding="#{backingBeanScope.MakalatBBV2.pa1}">
+              <af:showDetailItem text="أعداد المجلة" id="sdi1"
+                                 binding="#{backingBeanScope.MakalatBBV2.sdi1}">
+                <af:tree value="#{bindings.Magala2.treeModel}" var="node"
+                         selectionListener="#{backingBeanScope.MakalatBBV2.select_tree_node}"
+                         rowSelection="single"
+                         binding="#{backingBeanScope.MakalatBBV2.t1}" id="t1">
+                  <f:facet name="nodeStamp">
+                    <af:outputText value="#{node.Namear}"
+                                   binding="#{backingBeanScope.MakalatBBV2.ot1}"
+                                   id="ot1"/>
+                  </f:facet>
+                </af:tree>
+              </af:showDetailItem>
+            </af:panelAccordion>
+          </f:facet>
+          <f:facet name="second">
+          <af:inlineFrame id="iframe_static_container_makalat"
+                              sizing="preferred"
+                              source="/Static_Content/ElMagala/HTML/25.html"
+                              styleClass="AFStretchWidth"
+                              inlineStyle="height:500.0px; direction:rtl;"
+                              partialTriggers="t1"
+                              binding="#{backingBeanScope.MakalatBBV2.iframe_static_container_makalat}"/>
+          </f:facet>
+        </af:panelSplitter>
+
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:MakalatBBV2-->
+</jsp:root>

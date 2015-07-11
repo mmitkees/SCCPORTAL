@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+ 
+      <af:panelGroupLayout layout="default"
+                           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                           id="pgl8" landmark="main"
+                           inlineStyle="width:800.0px;">
+        <af:inlineFrame id="iframe_static_container_makalat" sizing="preferred"
+                        source="http://192.168.0.210:7101/SCC/Portal_Images/TimeLine.html"
+                        inlineStyle="width:1000px; height:800.0px; direction:rtl;"
+                        binding="#{backingBeanScope.MakalatBBV2.iframe_static_container_makalat}"/>
+      </af:panelGroupLayout>
+ 
+</jsp:root>

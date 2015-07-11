@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="LawsSearchPageDef"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Cases_Laws1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="Cases_Laws1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="Cases_Laws1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Cases_Laws1Query"/>
+    <iterator Binds="Cases_LawsVO_SD2" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="Cases_LawsVO_SD2Iterator"/>
+    <searchRegion Binds="Cases_LawsVO_SD2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="Cases_LawsVO_SD2Query"/>
+    <taskFlow id="LawsSearch1"
+              taskFlowId="/PortalFragments/LawsSearch.xml#LawsSearch"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

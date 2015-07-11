@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:wcshell="http://xmlns.oracle.com/webcenter/shell"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:wcdc="http://xmlns.oracle.com/webcenter/spaces/taglib"
+          xmlns:cust="http://xmlns.oracle.com/adf/faces/customizable"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:rtc="http://xmlns.oracle.com/webcenter/collab/rtc">
+   <af:pageTemplateDef var="attrs">
+      <af:xmlContent>
+         <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+            <display-name>WCSiteTemplateRRTopNavStretch</display-name>
+            <facet>
+               <facet-name>auxiliary1</facet-name>
+            </facet>
+            <facet>
+               <facet-name>content</facet-name>
+            </facet>
+            <attribute>
+               <attribute-name>auxiliary1Size</attribute-name>
+               <attribute-class>int</attribute-class>
+               <default-value>200</default-value>
+            </attribute>
+            <attribute>
+               <attribute-name>fixedWidthFlowTemplate</attribute-name>
+               <attribute-class>java.lang.Boolean</attribute-class>
+               <default-value>#{not empty
+                              WCAppContext.currentPageTemplate.attributesMap['templateLayoutType'].value
+                              and
+                              WCAppContext.currentPageTemplate.attributesMap['templateLayoutType'].value
+                              == 'flow' ? true : false}</default-value>
+            </attribute>
+            <attribute>
+               <attribute-name>templateFixedWidth</attribute-name>
+               <attribute-class>java.lang.String</attribute-class>
+               <default-value>#{not empty
+                              WCAppContext.currentPageTemplate.attributesMap['templateFixedWidth'].value
+                              ?
+                              WCAppContext.currentPageTemplate.attributesMap['templateFixedWidth'].value
+                              : '1000'}</default-value>
+            </attribute>
+            <attribute>
+               <attribute-name>topPanelHeight</attribute-name>
+               <attribute-class>java.lang.String</attribute-class>
+               <default-value>#{not empty
+                              WCAppContext.currentPageTemplate.attributesMap['topPanelHeight'].value
+                              ?
+                              WCAppContext.currentPageTemplate.attributesMap['topPanelHeight'].value
+                              : '44'}</default-value>
+            </attribute>
+            <attribute>
+               <attribute-name>panelSeparatorHeight</attribute-name>
+               <attribute-class>java.lang.String</attribute-class>
+               <default-value>#{not empty
+                              WCAppContext.currentPageTemplate.attributesMap['panelSeparatorHeight'].value
+                              ?
+                              WCAppContext.currentPageTemplate.attributesMap['panelSeparatorHeight'].value
+                              : '14'}</default-value>
+            </attribute>
+            <attribute>
+               <attribute-name>panelFooterHeight</attribute-name>
+               <attribute-class>java.lang.String</attribute-class>
+               <default-value>#{WCAppContext.currentPageTemplate.attributesMap['panelFooterHeight'].value}</default-value>
+            </attribute>
+            <attribute>
+               <attribute-name>brandingImageUrl</attribute-name>
+               <attribute-class>java.lang.String</attribute-class>
+               <default-value>#{not empty
+                              WCAppContext.currentPageTemplate.attributesMap['brandingImageUrl'].value
+                              ?
+                              WCAppContext.currentPageTemplate.attributesMap['brandingImageUrl'].value
+                              : ''}</default-value>
+            </attribute>
+            <attribute>
+               <attribute-name>footerNavigationModelPath</attribute-name>
+               <attribute-class>java.lang.String</attribute-class>
+               <default-value>#{empty
+                              WCAppContext.currentPageTemplate.attributesMap['footerNavigationFile'].value
+                              ? '' : 'modelPath='}#{empty
+                              WCAppContext.currentPageTemplate.attributesMap['footerNavigationFile'].value
+                              ? '' :
+                              WCAppContext.currentPageTemplate.attributesMap['footerNavigationFile'].value}</default-value>
+            </attribute>
+         </component>
+      </af:xmlContent>
+     
+      <af:resource type="css" source="/oracle/oracleapp/css/test.css"></af:resource>
+      <af:resource type="javascript"
+                   source="/oracle/oracleapp/js/jquery-1.11.3.min.js"></af:resource>
+      <af:resource type="javascript"
+                   source="/oracle/oracleapp/lib/moment.min.js"></af:resource>
+      <af:resource type="javascript" source="/oracle/oracleapp/lib/ar.js"></af:resource>
+      <af:resource type="javascript"
+                   source="/oracle/oracleapp/js/highcharts.js"></af:resource>
+      <af:resource type="javascript" source="/oracle/oracleapp/js/exporting.js"></af:resource>
+      <af:resource type="javascript" source="/oracle/oracleapp/js/scripts.js"></af:resource>
+      <af:resource type="css"
+                   source="/oracle/oracleapp/fullcalendar/fullcalendar.css"></af:resource>
+      <af:resource type="javascript"
+                   source="/oracle/oracleapp/fullcalendar/fullcalendar.js"></af:resource>
+      <af:resource type="css"
+                   source="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css"></af:resource>
+      <af:panelGroupLayout id="pt_pgl1" layout="scroll">
+         <af:panelGroupLayout id="pt_pgl2" layout="vertical">
+            <af:panelGroupLayout id="pt_pgl6" layout="vertical"
+                                 styleClass="top-header">
+               <af:panelGroupLayout id="pt_pgl4" layout="horizontal">
+                  <af:goImageLink id="pt_gil1" destination="/SCC"
+                                  icon="/oracle/oracleapp/images/logo.png"
+                                  inlineStyle="width:250.0px;"/>
+               </af:panelGroupLayout>
+            </af:panelGroupLayout>
+              <af:panelGroupLayout id="pt_pgl5"
+                                                   layout="vertical"
+                                                   styleClass="">
+               <af:region value="#{bindings.spacesNavigationPanel.regionModel}"
+                          id="spcNavPanel"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pt_pgl3">
+               <af:facetRef facetName="content"/>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+   </af:pageTemplateDef>
+</jsp:root>

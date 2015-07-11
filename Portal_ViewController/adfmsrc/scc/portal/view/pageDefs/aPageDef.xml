@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="aPageDef"
+                Package="scc.portal.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    
+    <taskFlow id="Book_Nav_TF2"
+              taskFlowId="/WEB-INF/Book_Nav_TF.xml#Book_Nav_TF"
+              activation="deferred" Refresh="ifNeeded"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="book_nav_id" value="#{test.taskFlowID}"/>
+        <parameter id="book_id" value="2#{test.bookID}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

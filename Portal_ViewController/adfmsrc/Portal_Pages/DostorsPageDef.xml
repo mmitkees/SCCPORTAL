@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="DostorsPageDef"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Dostors1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="Dostors1Iterator"/>
+    <iterator Binds="DostorLaws1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="DostorLaws1Iterator"/>
+    <iterator Binds="DostorDecision1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="DostorDecision1Iterator"/>
+    <iterator Binds="DostorDeclarationVO_SD1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="DostorDeclarationVO_SD1Iterator"/>
+    <iterator Binds="DostorPrevious1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="DostorPrevious1Iterator"/>
+    <taskFlow id="Dostors2" taskFlowId="/PortalFragments/Dostors.xml#Dostors"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Dostors1Iterator" id="Dostors113">
+      <nodeDefinition DefName="scc.portal.model.viewObject.DostorsCurrentVO_SD"
+                      Name="Dostors1130">
+        <AttrNames>
+          <Item Value="Dnamear"/>
+          <Item Value="Dpdffileurl"/>
+          <Item Value="Dtypeid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DostorLaws1Iterator" id="DostorLaws1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.DostorLawsVO_SD"
+                      Name="DostorLaws10">
+        <AttrNames>
+          <Item Value="Dnamear"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DostorDecision1Iterator" id="DostorDecision1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.HighDistoriaLawsVO_SD"
+                      Name="DostorDecision10">
+        <AttrNames>
+          <Item Value="Dnamear"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DostorDeclarationVO_SD1Iterator"
+          id="DostorDeclarationVO_SD1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.DostorDeclarationVO_SD"
+                      Name="DostorDeclarationVO_SD10">
+        <AttrNames>
+          <Item Value="Dnamear"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+        <tree IterBinding="DostorPrevious1Iterator" id="DostorPrevious1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.DostorPreviousVO_SD"
+                      Name="DostorPrevious10">
+        <AttrNames>
+          <Item Value="Dnamear"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Dostors1Iterator" id="Dostors1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.DostorsCurrentVO_SD"
+                      Name="Dostors10">
+        <AttrNames>
+          <Item Value="Dnamear"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

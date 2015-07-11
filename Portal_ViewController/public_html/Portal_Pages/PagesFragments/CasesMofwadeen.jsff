@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+ 
+         <af:panelGroupLayout id="pgl1" halign="center" styleClass="AFStretchWidth">
+          <table >
+          <tr>
+          <td align="center"><h3>الدعاوى طرف المفوضين</h3> </td>
+          </tr>
+          <tr>
+          <td align="center">
+              <af:table value="#{bindings.Cases_Mofwadeen1.collectionModel}"
+                        var="row" rows="#{bindings.Cases_Mofwadeen1.rangeSize}"
+                        emptyText="#{bindings.Cases_Mofwadeen1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.Cases_Mofwadeen1.rangeSize}"
+                        rowBandingInterval="0" 
+                        filterModel="#{bindings.Cases_Mofwadeen1Query.queryDescriptor}"
+                        queryListener="#{bindings.Cases_Mofwadeen1Query.processQuery}"
+                        varStatus="vs"
+                        selectedRowKeys="#{bindings.Cases_Mofwadeen1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.Cases_Mofwadeen1.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t1"
+                         >
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.CourtYear.name}"
+                           filterable="true" sortable="true" width="50px" align="center"
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.CourtYear.label}"
+                           id="c8">
+                  <af:outputText value="#{row.CourtYear}" id="ot5">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.Cases_Mofwadeen1.hints.CourtYear.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.RuleNumber.name}"
+                           filterable="true" sortable="true" width="60px" align="center"
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.RuleNumber.label}"
+                           id="c2">
+                  <af:outputText value="#{row.RuleNumber}" id="ot6">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.Cases_Mofwadeen1.hints.RuleNumber.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.RuleSubjectTypeName.name}"
+                           filterable="true" sortable="true" width="60px" align="center"
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.RuleSubjectTypeName.label}"
+                           id="c9">
+                  <af:outputText value="#{row.RuleSubjectTypeName}" id="ot1"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.SubmissionDate.name}"
+                           filterable="true" sortable="true" width="80px" align="center"
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.SubmissionDate.label}"
+                           id="c6">
+                  <af:outputText value="#{row.SubmissionDate}" id="ot4"/>
+                </af:column>
+               <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.Claimed.name}"
+                           filterable="true" sortable="true"  width="170px" 
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.Claimed.label}"
+                           id="c5">
+                  <af:outputText value="#{row.Claimed}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.Defendent.name}"
+                           filterable="true" sortable="true" width="170px" 
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.Defendent.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Defendent}" id="ot8"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.StatusName.name}"
+                           filterable="true" sortable="true"  width="50px"  align="center"
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.StatusName.label}"
+                           id="c4">
+                  <af:outputText value="#{row.StatusName}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.StatusName.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.StatusName.label}"
+                           id="c7">
+                  <af:outputText value="#{row.StatusName}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.Cases_Mofwadeen1.hints.Subject.name}"
+                           filterable="true" sortable="true" width="250px" 
+                           headerText="#{bindings.Cases_Mofwadeen1.hints.Subject.label}"
+                           id="c10">
+                  <af:outputText value="#{row.Subject}" id="ot10"/>
+                </af:column>
+              </af:table>
+               </td>
+            </tr>
+            </table>
+            </af:panelGroupLayout>
+       
+
+</jsp:root>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+ 
+      <af:panelGroupLayout id="pgl1" halign="center">
+        <table width="420px">
+          <tr>
+            <td align="center">
+              <af:table value="#{bindings.MofwadeenMembersPrevious11.collectionModel}"
+                        var="row" styleClass="AFStretchWidth"
+                        rows="#{bindings.MofwadeenMembersPrevious11.rangeSize}"
+                        emptyText="#{bindings.MofwadeenMembersPrevious11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.MofwadeenMembersPrevious11.rangeSize}"
+                        rowBandingInterval="0"
+                        filterModel="#{bindings.MofwadeenMembersPrevious11Query.queryDescriptor}"
+                        queryListener="#{bindings.MofwadeenMembersPrevious11Query.processQuery}"
+                        varStatus="vs" id="t2">
+                <af:column sortProperty="#{bindings.MofwadeenMembersPrevious11.hints.Name.name}"
+                           filterable="true" sortable="true" width="200px"
+                           headerText="#{bindings.MofwadeenMembersPrevious11.hints.Name.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Name}" id="ot3"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.MofwadeenMembersPrevious11.hints.PrevPos.name}"
+                           filterable="true" sortable="true" width="185px"
+                           align="center"
+                           headerText="#{bindings.MofwadeenMembersPrevious11.hints.PrevPos.label}"
+                           id="c3">
+                  <af:outputText value="#{row.PrevPos}" id="ot4"/>
+                </af:column>
+              </af:table>
+            </td>
+          </tr>
+        </table>
+      </af:panelGroupLayout>
+
+</jsp:root>

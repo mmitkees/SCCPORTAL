@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View3">
+      <property
+         name="activityId">MofwadeenMembersPrevious1</property>
+      <property
+         name="page">/Portal_Pages/MofwadeenMembersPrevious.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>MofwadeenMembersPrevious1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">128.44824</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">313.70508</property>
+   </View>
+</SDM>

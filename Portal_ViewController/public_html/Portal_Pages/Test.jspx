@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view locale="ar">
+    <af:document id="d1" binding="#{test.d1}">
+      <af:form id="f1" binding="#{test.f1}">
+        <table border="1">
+          <tr>
+            <td>
+              <af:commandLink text="chairmanword" id="cl2">
+                <af:setPropertyListener from="chairmanword" type="action"
+                 to="#{test.taskFlowID}"/>                
+              </af:commandLink>
+              <br/>
+              <af:commandLink text="tf1" id="cl1">
+               <af:setPropertyListener from="chairmanword" type="action"
+                 to="#{test.taskFlowID}"/>
+              </af:commandLink>
+              <br/>
+              <af:commandLink text="AboutCourt" id="cl3">
+               <af:setPropertyListener from="AboutCourt" type="action"
+                 to="#{test.taskFlowID}"/>
+              </af:commandLink>
+              <br/>
+              <af:commandLink text="CasesGadwal" id="cl4">
+               <af:setPropertyListener from="CasesGadwal" type="action"
+                 to="#{test.taskFlowID}"/>
+              </af:commandLink>
+              <br/>
+              <af:commandLink text="CasesGalasat" id="cl5">
+               <af:setPropertyListener from="CasesGalasat" type="action"
+                 to="#{test.taskFlowID}"/>
+              </af:commandLink>
+              <br/>
+              <af:commandLink text="a" id="cl6">
+               <af:setPropertyListener from="a" type="action"
+                 to="#{test.taskFlowID}"/>
+              </af:commandLink>
+              <br/>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:region value="#{bindings.Main_Nav_TF1.regionModel}" id="r1"
+                         binding="#{test.r1}"/>
+            </td>
+          </tr>
+        </table>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:test-->
+</jsp:root>

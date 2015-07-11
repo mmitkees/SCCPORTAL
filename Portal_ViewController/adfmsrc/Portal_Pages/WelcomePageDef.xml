@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="WelcomePageDef"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Cases_types_count_char1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="Cases_types_count_char1Iterator"/>
+    <iterator Binds="RulesCounts1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="RulesCounts1Iterator"/>
+    <iterator Binds="CourtNews1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl" id="CourtNews1Iterator"/>
+    <searchRegion Binds="CourtNews1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CourtNews1Query"/>
+    <taskFlow id="Welcome1" taskFlowId="/PortalFragments/Welcome.xml#Welcome"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="RulesCounts1Iterator" id="HighDestoriaCourt">
+      <AttrNames>
+        <Item Value="HighDestoriaCourt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RulesCounts1Iterator" id="HighCourt">
+      <AttrNames>
+        <Item Value="HighCourt"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CourtNews1Iterator" id="CourtNews1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CourtNewsVO_SD"
+                      Name="CourtNews10">
+        <AttrNames>
+          <Item Value="NewId"/>
+          <Item Value="NewHeadline"/>
+          <Item Value="NewBrief"/>
+          <Item Value="LargeImage"/>
+          <Item Value="PublishDateFrom"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.1">
+  <file source-language="en" original="SCC_MODEL_AR" datatype="x-oracle-adf">
+    <body>
+      <trans-unit id="RollDate">
+        <source>التاريخ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Decree">
+        <source>نص القرار</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="JudgeDone">
+        <source>قرار الجلسة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PostponeDate">
+        <source> تاريخ التأجيل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CourtYear">
+        <source>س.ق</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CourtTypeName">
+        <source>المحكمة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RuleSubjectTypeName">
+        <source>موضوع الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="StatusName">
+        <source>حالة الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Name">
+        <source>المستشار</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PeriodFrom">
+        <source>الفترة من</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PrevPosition">
+        <source>فترة شغل المنصب</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PeriodToDate">
+        <source>إلى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Dnameen">
+        <source>الاسم بالانجليزية</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Dnamear">
+        <source>الوثائق</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Dtypeid">
+        <source>نوع الوثيقة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Dpublishdate">
+        <source>تاريخ النشر</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="SubmissionDate">
+        <source>تاريخ قيد الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AcceptanceDate">
+        <source>تاريخ قبول الدعوة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ToMofodeenDate">
+        <source>تاريخ الاحالة للمفوضين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Namear">
+        <source>عدد المجلة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MakalNamear">
+        <source>المقال</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RollNumber">
+        <source>رقم الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="top_judjements">
+        <source>أخر الاحكام</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="claimeds">
+        <source>المدعون</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RolleRule">
+        <source>جلسات الدعوة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RollType">
+        <source>نوع الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Defendent">
+        <source>المدعي عليهم	</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DefendantsLawers">
+        <source>محامين المدعي عليهم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ClaimedLawers">
+        <source>محامين المدعين</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RollStatus">
+        <source>حالة الدعوى في الجلسة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CaseStatusCode">
+        <source>مكان الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RowNum">
+        <source>رقم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Rule_Warding">
+        <source>منطوق الحكم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="DostorLabel">
+        <source>الدستور</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="lawNum">
+        <source>رقم القانون</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LawYear">
+        <source>سنة القانون</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LawType">
+        <source>نوع القانون</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LawName">
+        <source>مسمى القانون</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Param_LAws">
+        <source>حالة القانون</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="article">
+        <source>البند</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="paragraph">
+        <source>الفقرة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="lawitems">
+        <source>المادة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="statuscode">
+        <source>موقف الحكم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="datefrom">
+        <source>التاريخ من</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RuleDate">
+        <source>تاريخ الحكم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RuleNText">
+        <source>نص الحكم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="KeyName">
+        <source>المبادئ</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="MagalaID">
+        <source>رقم العدد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="AUTHORNAME">
+        <source>اسم المؤلف</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="all">
+        <source>الكل</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="PartNumber">
+        <source>رقم الجزء</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="CaseInfo">
+        <source>الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BBLaw">
+        <source>القانون محل الطعن</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="BBSubject">
+        <source>الموضوع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="RuleDateGroup">
+        <source>تاريخ جلسة الحكم</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Volume">
+        <source>رقم المجلد</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Page">
+        <source>رقم الصفحة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Base">
+        <source>رقم القاعدة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Notes">
+        <source>ملاحظات</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="JurVersion">
+        <source>عدد الجريدة</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="LawItems">
+        <source>التشريع</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="caseInfo">
+        <source>بيانات الدعوى</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="Wadingbrief">
+        <source>مختصر الحكم</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

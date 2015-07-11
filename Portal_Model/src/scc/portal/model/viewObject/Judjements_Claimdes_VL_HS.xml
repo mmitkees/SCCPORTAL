@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Judjements_Claimdes_VL_HS"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="scc.portal.model.viewObject.Judjements_Claimdes_VL_HS_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="Judjements_SearchVO_HS"
+    Cardinality="1"
+    Owner="scc.portal.model.viewObject.Judjements_SearchVO_HS"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="Judjements_SearchVO_HS"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="scc.portal.model.viewObject.Judjements_SearchVO_HS.CaseId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="CASES_CLAIMED_VO_HS"
+    Cardinality="-1"
+    Owner="scc.portal.model.viewObject.CASES_CLAIMED_VO_HS">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CASES_CLAIMED_VO_HS"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="scc.portal.model.viewObject.CASES_CLAIMED_VO_HS.CaseId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="scc.portal.model.Portal_ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="WelcomeTFPageDef"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+           <taskFlow id="MainTF"
+                     taskFlowId="#{viewScope.NewWelcomeBean.dynamicTaskFlowId}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <variableIterator id="variables"/>
+    
+    
+    <iterator id="RulesChart1Iterator" Binds="RulesChart1"
+              DataControl="AppModuleAM_SDDataControl"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

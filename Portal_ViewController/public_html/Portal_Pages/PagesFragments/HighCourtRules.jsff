@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+
+      <af:panelSplitter id="ps1" styleClass="AFStretchWidth"
+                        inlineStyle="height:500.0px;" splitterPosition="255">
+        <f:facet name="first">
+          <af:group id="g1">
+            <af:inputText value="#{bindings.courtyear.inputValue}"
+                          label="#{bindings.courtyear.hints.label}"
+                          required="#{bindings.courtyear.hints.mandatory}"
+                          columns="#{bindings.courtyear.hints.displayWidth}"
+                          maximumLength="#{bindings.courtyear.hints.precision}"
+                          shortDesc="#{bindings.courtyear.hints.tooltip}"
+                          id="it1">
+              <f:validator binding="#{bindings.courtyear.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.courtyear.format}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.ruletype.inputValue}"
+                                label="#{bindings.ruletype.label}"
+                                required="#{bindings.ruletype.hints.mandatory}"
+                                shortDesc="#{bindings.ruletype.hints.tooltip}"
+                                id="soc1">
+              <f:selectItems value="#{bindings.ruletype.items}" id="si1"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.statuscode.inputValue}"
+                                label="#{bindings.statuscode.label}"
+                                required="#{bindings.statuscode.hints.mandatory}"
+                                shortDesc="#{bindings.statuscode.hints.tooltip}"
+                                id="soc2">
+              <f:selectItems value="#{bindings.statuscode.items}" id="si2"/>
+            </af:selectOneChoice>
+            <af:inputDate value="#{bindings.datefrom.inputValue}"
+                          label="#{bindings.datefrom.hints.label}"
+                          required="#{bindings.datefrom.hints.mandatory}"
+                          shortDesc="#{bindings.datefrom.hints.tooltip}"
+                          id="id1">
+              <f:validator binding="#{bindings.datefrom.validator}"/>
+              <af:convertDateTime pattern="#{bindings.datefrom.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.dateto.inputValue}"
+                          label="#{bindings.dateto.hints.label}"
+                          required="#{bindings.dateto.hints.mandatory}"
+                          shortDesc="#{bindings.dateto.hints.tooltip}" id="id2">
+              <f:validator binding="#{bindings.dateto.validator}"/>
+              <af:convertDateTime pattern="#{bindings.dateto.format}"/>
+            </af:inputDate>
+            <af:selectOneChoice value="#{bindings.rulewarding.inputValue}"
+                                label="#{bindings.rulewarding.label}"
+                                required="#{bindings.rulewarding.hints.mandatory}"
+                                shortDesc="#{bindings.rulewarding.hints.tooltip}"
+                                id="soc3">
+              <f:selectItems value="#{bindings.rulewarding.items}" id="si3"/>
+            </af:selectOneChoice>
+            <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}"
+                              text="بحث الأحكام"
+                              disabled="#{!bindings.ExecuteWithParams.enabled}"
+                              id="cb1"/>
+          </af:group>
+        </f:facet>
+        <f:facet name="second">
+          <af:group id="g2">
+            <af:table value="#{bindings.HighCourtRules1.collectionModel}"
+                      var="row" styleClass="AFStretchWidth"
+                      rows="#{bindings.HighCourtRules1.rangeSize}"
+                      emptyText="#{bindings.HighCourtRules1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.HighCourtRules1.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.HighCourtRules1Query.queryDescriptor}"
+                      queryListener="#{bindings.HighCourtRules1Query.processQuery}"
+                      varStatus="vs"
+                      selectedRowKeys="#{bindings.HighCourtRules1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.HighCourtRules1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" partialTriggers="::cb1">
+              <af:column sortProperty="#{bindings.HighCourtRules1.hints.RuleNumber.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="49px"
+                         headerText="#{bindings.HighCourtRules1.hints.RuleNumber.label}"
+                         id="c1">
+                <af:outputText value="#{row.RuleNumber}" id="ot3">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.HighCourtRules1.hints.RuleNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.HighCourtRules1.hints.Subjecttypename.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="85px"
+                         headerText="#{bindings.HighCourtRules1.hints.Subjecttypename.label}"
+                         id="c2">
+                <af:outputText value="#{row.Subjecttypename}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.HighCourtRules1.hints.GetrulestatusnameCasesRuleStatusCode.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="65px"
+                         headerText="#{bindings.HighCourtRules1.hints.GetrulestatusnameCasesRuleStatusCode.label}"
+                         id="c5">
+                <af:outputText value="#{row.GetrulestatusnameCasesRuleStatusCode}"
+                               id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.HighCourtRules1.hints.RuleDate.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="65px"
+                         headerText="#{bindings.HighCourtRules1.hints.RuleDate.label}"
+                         id="c7">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.RuleDate}" id="id3"/>
+                </f:facet>
+                <af:outputText value="#{row.RuleDate}" id="ot1">
+                  <af:convertDateTime pattern="#{bindings.HighCourtRules1.hints.RuleDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.HighCourtRules1.hints.Wardingname.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="95px"
+                         headerText="#{bindings.HighCourtRules1.hints.Wardingname.label}"
+                         id="c6">
+                <af:outputText value="#{row.Wardingname}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.HighCourtRules1.hints.KeyName.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="85px"
+                         headerText="#{bindings.HighCourtRules1.hints.KeyName.label}"
+                         id="c4">
+                <af:outputText value="#{row.KeyName}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.HighCourtRules1.hints.RuleNtext.name}"
+                         sortable="true" align="center" width="65px"
+                         headerText="#{bindings.HighCourtRules1.hints.RuleNtext.label}"
+                         id="c3">
+                <af:commandLink text="عرض الحكم" id="cb2" partialSubmit="true"
+                                windowHeight="455">
+                  <af:showPopupBehavior popupId="::p1" triggerType="action"/>
+                </af:commandLink>
+              </af:column>
+            </af:table>
+            <af:popup id="p1" eventContext="launcher"
+                      contentDelivery="lazyUncached"
+                      binding="#{backingBeanScope.CourtRules.p1}">
+              <af:dialog id="d2" type="ok" title="نص الحكم" contentWidth="800"
+                         contentHeight="430" modal="false" resize="on"
+                         binding="#{backingBeanScope.CourtRules.d2}">
+                <af:panelFormLayout id="pfl1">
+                  <af:richTextEditor value="#{bindings.RuleNtext.inputValue}"
+                                     id="ot6"
+                                     inlineStyle="width:700px; height:400.0px;"/>
+                </af:panelFormLayout>
+              </af:dialog>
+            </af:popup>
+          </af:group>
+        </f:facet>
+      </af:panelSplitter>
+
+</jsp:root>

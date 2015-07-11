@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="CourtRollMofwadeenPageDef11"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="MofwadeenRollDates1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="MofwadeenRollDates1Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="MofwadeenRollDates1.variablesMap.CourtYear"
+                     Name="ExecuteWithParams_CourtYear" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="CourtRollMofwadeenVO_SD1.variablesMap.RollDate"
+                     Name="ExecuteWithParams1_RollDate" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="CourtRollMofwadeenVO_SD1.variablesMap.RollStatus"
+                     Name="ExecuteWithParams1_RollStatus" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="CourtRollMofwadeenVO_SD1.variablesMap.RollType"
+                     Name="ExecuteWithParams1_RollType" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="MofwadeenRollYears1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="MofwadeenRollYears1Iterator"/>
+    <iterator Binds="CourtRollMofwadeenVO_SD1" RangeSize="5"
+              DataControl="AppModuleAM_SDDataControl"
+              id="CourtRollMofwadeenVO_SD1Iterator" Refresh="ifNeeded"/>
+    <iterator Binds="CaseStatus1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl" id="CaseStatus1Iterator"/>
+    <iterator Binds="RuleSubjectTypesLOV_VO_HS1" RangeSize="-1"
+              DataControl="AppModuleAM_HSDataControl"
+              id="RuleSubjectTypesLOV_VO_HS1Iterator"/>
+    <searchRegion Binds="CourtRollMofwadeenVO_SD1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CourtRollMofwadeenVO_SD1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MofwadeenRollDates1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="CourtYear"
+                 NDValue="#{backingBeanScope.MofawadeenRollsBB.Year}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </action>
+    <list IterBinding="variables" id="CourtYear" DTSupportsMRU="true"
+          StaticList="false" ListIter="MofwadeenRollYears1Iterator">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_CourtYear"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="CourtYear"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="CourtYear"/>
+      </ListDisplayAttrNames>
+    </list>
+    <action IterBinding="CourtRollMofwadeenVO_SD1Iterator"
+            id="ExecuteWithParams1" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="RollDate"
+                 NDValue="${bindings.ExecuteWithParams1_RollDate}"
+                 NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="RollStatus"
+                 NDValue="${bindings.ExecuteWithParams1_RollStatus}"
+                 NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="RollType"
+                 NDValue="${bindings.ExecuteWithParams1_RollType}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </action>
+    <list IterBinding="variables" id="RollDate" DTSupportsMRU="true"
+          StaticList="false" ListIter="MofwadeenRollDates1Iterator">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_RollDate"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="RuleDate"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="RuleDate"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="RollStatus" DTSupportsMRU="true"
+          StaticList="false" ListIter="CaseStatus1Iterator"
+          NullValueFlag="start" NullValueId="RollStatus_null">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_RollStatus"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="RollType" DTSupportsMRU="true"
+          StaticList="false" ListIter="RuleSubjectTypesLOV_VO_HS1Iterator" NullValueFlag="start"
+          NullValueId="RollType_null">
+      <AttrNames>
+        <Item Value="ExecuteWithParams1_RollType"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Code"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="CourtRollMofwadeenVO_SD1Iterator"
+          id="CourtRollMofwadeenVO_SD1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.CourtRollMofwadeenVO_SD"
+                      Name="CourtRollMofwadeenVO_SD10">
+        <AttrNames>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleNumber"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="RollStatus"/>
+          <Item Value="RuleDate"/>
+          <Item Value="Claimeds"/>
+          <Item Value="Defendents"/>
+          <Item Value="Subject"/>
+          <Item Value="Decree"/>
+          <Item Value="JudgeDone"/>
+          <Item Value="PostponeDate"/>
+          <Item Value="CourtTypeName"/>
+          <Item Value="StatusName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

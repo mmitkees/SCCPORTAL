@@ -1,0 +1,40 @@
+<data>
+<event 
+start="MON JUL 01 2003" 
+end="MON JUL 01 2015" 
+title="ÚÏáí ãÍãæÏ ãÍãæÏ ãäÕæÑ" 
+icon="http://www.supremecourt.gov/about/images/green-circle.png" 
+image="http://www.supremecourt.gov/about/portraits/Antonin_Scalia2.jpg"
+color="black" 
+link= "http://www.google.com"
+isDuration="true"
+description= "Test 1b: only start date, durationEvent true"
+durationEvent = "true"
+tapeImage="a.png" tapeRepeat="repeat-x"  > CV </event>
+
+<event 
+start="MON JUL 01 2013" 
+end="MON JUL 01 2017" 
+title="ÚÏáí ãÍãæÏ ãÍãæÏ ãäÕæÑ" 
+icon="http://www.supremecourt.gov/about/images/green-circle.png" 
+image="http://www.supremecourt.gov/about/portraits/Antonin_Scalia2.jpg"
+color="black" 
+link= "http://www.google.com"
+isDuration="true"
+description= "Test 1b: only start date, durationEvent true"
+durationEvent = "true"
+tapeImage="a.png" tapeRepeat="repeat-x"  > CV </event>
+
+<event 
+start="MON JUL 01 2000" 
+end="MON JUL 01 2015" 
+title="ÚÏáí ãÍãæÏ ãÍãæÏ ãäÕæÑ" 
+icon="http://www.supremecourt.gov/about/images/green-circle.png" 
+image="http://www.supremecourt.gov/about/portraits/Antonin_Scalia2.jpg"
+color="black" 
+link= "http://www.google.com"
+isDuration="true"
+description= "Test 1b: only start date, durationEvent true"
+durationEvent = "true"
+tapeImage="a.png" tapeRepeat="repeat-x"  > CV </event>
+</data>

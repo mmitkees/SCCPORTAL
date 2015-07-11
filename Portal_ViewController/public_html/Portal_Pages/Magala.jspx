@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view locale="ar">
+    <af:document id="d1" title="المجلة" binding="#{backingBeanScope.MagalBBV2.d1}">
+      <af:messages binding="#{backingBeanScope.MagalBBV2.m1}"
+                   id="m1"/>
+      <af:form id="f1"
+               binding="#{backingBeanScope.MagalBBV2.f1}">
+        <af:pageTemplate viewId="/Portal_Templates/Main_Template.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+          <f:facet name="Main_Content">
+            <af:panelGroupLayout binding="#{backingBeanScope.MagalBBV2.pgl1}"
+                                 id="pgl1" styleClass="AFStretchWidth">
+              <af:panelSplitter id="ps1" inlineStyle="width:800.0px;height:500px">
+                <f:facet name="first">
+                 <af:panelAccordion binding="#{backingBeanScope.MagalBBV2.pa1}"
+                                       id="pa1" inlineStyle="width:220.0px;">
+                    <af:showDetailItem text="أعداد المجلة" id="sdi1"
+                                                 binding="#{backingBeanScope.MagalBBV2.sdi1}">
+                        <af:table value="#{bindings.Magala1.collectionModel}"
+                                  var="row" rows="#{bindings.Magala1.rangeSize}"
+                                  emptyText="#{bindings.Magala1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.Magala1.rangeSize}"
+                                  rowBandingInterval="0" styleClass="AFStretchWidth"
+                                  selectedRowKeys="#{bindings.Magala1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Magala1.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  binding="#{backingBeanScope.MagalBBV2.t1}"
+                                  id="t1">
+                          <af:column sortProperty="#{bindings.Magala1.hints.Namear.name}"
+                                     sortable="false" width="191px"
+                                     headerText="#{bindings.Magala1.hints.Namear.label}"
+                                     id="c1">
+                            <af:commandLink text="#{row.Namear}" id="ot1"
+                                            shortDesc="#{row.Fileurl}" 
+                                            action="#{backingBeanScope.MagalBBV2.Link_click_action}"
+                                            actionListener="#{backingBeanScope.MagalBBV2.link_Click_action_listener}"
+                                            partialSubmit="true"/>
+                          </af:column>
+                        </af:table>
+                      </af:showDetailItem>
+                    </af:panelAccordion>
+                  </f:facet>
+                <f:facet name="second">
+                 <af:panelGroupLayout layout="scroll"
+                                     xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                     id="pgl8" landmark="main"
+                                     inlineStyle="width:700.0px;">
+                <af:inlineFrame id="iframe_static_container_magala"
+                                    sizing="preferred"
+                                    source="/Static_Content/ElMagala/HTML/25.html"
+                                   inlineStyle="width:580px; height:500.0px; direction:rtl;position:relative;"
+                                   binding="#{backingBeanScope.MagalBBV2.iframe_static_container_magala}"
+                                    partialTriggers="t1:ot1">
+                                    </af:inlineFrame>
+                                    </af:panelGroupLayout>
+                </f:facet>
+              </af:panelSplitter>
+            
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:MagalBBV2-->
+</jsp:root>

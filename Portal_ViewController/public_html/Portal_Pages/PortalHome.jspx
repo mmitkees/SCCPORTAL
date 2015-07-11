@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view locale="ar">
+    <af:document id="d1"  title="المحكمة الدستورية العليا"
+                 binding="#{backingBeanScope.PortalHomeBB.d1}">
+      <af:form binding="#{backingBeanScope.PortalHomeBB.f1}" id="f1">
+        <af:resource type="css" source="../css/style.css"/>
+        <af:resource type="css" source="../css/rtl.css"/>
+        <af:resource type="javascript" source="../js/jquery-1.11.3.min.js"/>
+        <af:resource type="javascript" source="../lib/moment.min.js"/>
+        <af:resource type="javascript" source="../lib/ar.js"/>
+        <af:resource type="javascript" source="../js/highcharts.js"/>
+        <af:resource type="javascript" source="../js/exporting.js"/>
+        <af:resource type="javascript" source="../js/scripts.js"/>
+        <af:resource type="css" source="../fullcalendar/fullcalendar.css"/>
+        <af:resource type="javascript"
+                     source="../fullcalendar/fullcalendar.js"/>
+        <script type="text/javascript">        
+     $(document).ready(function () {
+
+         // page is now ready, initialize the calendar...
+         $('#calendar').fullCalendar( {
+             // put your options and callbacks here
+         })
+
+     });
+      document.body.className = 'home boxed shadow bg01';       
+ </script>
+        <!--Arabic interface style-->
+        <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<link href="style-ie.css" rel="stylesheet" type="text/css" media="screen">
+	<![endif]-->
+        <div class="root">
+          <header class="h1">
+            <section class="main-header">
+              <a href="index.html">
+                <img src="../images/logo.png" alt="HC Court" width="250"
+                     class="logo"/></a>
+              <!--link to swap languages
+                <a href="../index.html" class="langlink">English <img src="images/en_icon.png" >
+                </a> -->
+              <nav class="mainmenu">
+                <ul>
+                  <li class="current-menu-item">
+                    <af:commandLink id="cl6" text="الرئيسية"
+                                    shortDesc="/PortalFragments/Welcome.xml#Welcome"
+                                    styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl6}"/>
+                  </li>
+                   
+                  <li >
+                    <a href="#">عن المحكمة</a>
+                    <ul>
+                      <li><a href="#">
+                        <af:commandLink id="cl19" text="كلمة رئيس المحكمة"
+                                        shortDesc="/PortalFragments/chairmanword.xml#chairmanword"
+                                         styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl19}"/>
+                      </a></li>
+                       
+                      <li><a href="#">
+                        <af:commandLink id="cl20" text="التعريف بالمحكمة"
+                                        shortDesc="/PortalFragments/AboutCourt.xml#AboutCourt"
+                                         styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl20}"/>
+                      </a></li>
+                       
+                      <li><a href="#">
+                        <af:commandLink id="cl21" text="لمحة تاريخية"
+                                        shortDesc="/PortalFragments/CourtHistory.xml#CourtHistory"
+                                        styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl21}"/>
+                     </a> </li>
+                       
+                      <li><a href="#">
+                        <af:commandLink id="cl24" text="مبني المحكمة"
+                                        shortDesc="/PortalFragments/CourtBuilding.xml#CourtBuilding"
+                                         styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl24}"/>
+                     </a> </li>
+                       
+                      <li><a href="#">
+                        <af:commandLink id="cl25" text="البوم الصور"
+                                        shortDesc="/PortalFragments/Galary.xml#Galary"
+                                         styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl25}"/>
+                      </a></li>
+                    </ul>
+                  </li>
+                   
+                  <li>
+                    <a href="#">أعضاء المحكمة</a>
+                    <ul>
+                      <li><a href="#">
+                        <af:commandLink id="cl26" text="التشكيل الحالى للمكمة"
+                                        shortDesc="/PortalFragments/Court_Members_Current.xml#Court_Members_Current"
+                                        styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl26}"/>
+                      </a></li>
+                       
+                      <li>
+                        <a href="#">تشكيل هيئة المفوضين</a>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl27" text="رؤساء"
+                                              shortDesc="/PortalFragments/CurrentMofwaddeenChairmen.xml#CurrentMofwaddeenChairmen"
+                                               styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl27}"/>
+                                    </a>
+                       </li>
+                           
+                          <li>
+                            <a href="#">أعضاء</a>
+                          </li>
+                        </ul>
+                      </li>
+                       
+                      <li>
+                        <a href="#">تشكيلات سابقة</a>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl28" text="رؤساء المحكمة"
+                                              shortDesc="/PortalFragments/CourtChairmenPrevious.xml#CourtChairmenPrevious"
+                                               styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl28}"/></a>
+                          </li>
+                           
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl29" text="نواب المحكمة"
+                                              shortDesc="/PortalFragments/CourtChairmenRepresentativePrevious.xml#CourtChairmenRepresentativePrevious"
+                                               styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl29}"/></a>
+                          </li>
+                           
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl30" text="رؤساء هيئة المفوضين"
+                                              shortDesc="/PortalFragments/MofwadeenChairmenPrevious.xml#MofwadeenChairmenPrevious"
+                                               styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                              binding="#{backingBeanScope.PortalHomeBB.cl30}"/></a>
+                          </li>
+                           
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl31" text="أعضاء هيئة المفوضين"
+                                              shortDesc="/PortalFragments/MofwadeenMembersPrevious.xml#MofwadeenMembersPrevious"
+                                              styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl31}"/></a>
+                          </li>
+                        </ul>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl32" text="عرض زمني"
+                                          shortDesc="/PortalFragments/TimeLine.xml#TimeLine"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl32}"/></a>
+                      </li>
+                    </ul>
+                  </li>
+                   
+                  <li>
+                    <a href="#">الوثائق الدستورية</a>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl33" text="وثائق دستورية "
+                                          shortDesc="/PortalFragments/Dostors.xml#Dostors"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl33}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl34" text="رقابة سابقة"
+                                          shortDesc="/PortalFragments/PreviosControl.xml#PreviosControl"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl34}"/></a>
+                      </li>
+                    </ul>
+                  </li>
+                   
+                  <li>
+                    <a href="#">الدعاوى</a>
+                    <ul>
+                      <li>
+                        <a href="UnderConstruction.jspx">تسجيل دعوى جديدة</a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl35" text="الدعاوى طرف الجدول"
+                                          shortDesc="/PortalFragments/CasesGadwal.xml#CasesGadwal"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl35}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl36" text="الدعاوى طرف المفوضين"
+                                          shortDesc="/PortalFragments/CasesMofwadeen.xml#CasesMofwadeen"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl36}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl37" text="الدعاوى طرف الجلسات"
+                                          shortDesc="/PortalFragments/CasesGalasat.xml#CasesGalasat"
+                                          action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                          actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                          binding="#{backingBeanScope.PortalHomeBB.cl37}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl38" text="بحث في الدعاوى"
+                                          shortDesc="/PortalFragments/search_case.xml#search_case"
+                                          styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl38}"/></a>
+                      </li>
+                    </ul>
+                  </li>
+                   
+                  <li>
+                    <a href="#">الأحكام الدستورية</a>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl39" text="أحكام المحكمة العليا"
+                                          shortDesc="/PortalFragments/HighCourtRules.xml#HighCourtRules"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl39}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl40"
+                                          text="أحكام المحكمة الدستورية"
+                                          shortDesc="/PortalFragments/CourtRules.xml#CourtRules"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl40}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl41" text="بحث في الأحكام"
+                                          shortDesc="/PortalFragments/judjements_search.xml#judjements_search"
+                                          action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                          actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                          binding="#{backingBeanScope.PortalHomeBB.cl41}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">بحث موضوعي</a>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl42" text="بدلالة التشريعات"
+                                              shortDesc="/PortalFragments/LawsSearch.xml#LawsSearch"
+                                               styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl42}"/></a>
+                          </li>
+                           
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl43" text="بدلالة المجموعات"
+                                              shortDesc="/PortalFragments/GroupesSearch.xml#GroupesSearch"
+                                              styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl43}"/></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                   
+                  <li>
+                    <a href="#">الجلسات</a>
+                    <ul>
+                      <li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl45" text="جلسات المحكمة"
+                                          shortDesc="/PortalFragments/CourtRoll.xml#CourtRoll"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl45}"/></a>
+                      </li>
+                        <a href="#">
+                          <af:commandLink id="cl44" text="جلسات هيئة المفوضين"
+                                          shortDesc="/PortalFragments/CourtRollMofwadeen.xml#CourtRollMofwadeen"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl44}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">بحث</a>
+                        <ul>
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl46" text="جلسات المحكمة"
+                                              shortDesc="/PortalFragments/SearchRolls.xml#SearchRolls"
+                                               styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                    binding="#{backingBeanScope.PortalHomeBB.cl46}"/></a>
+                          </li>
+                           
+                          <li>
+                            <a href="#">
+                              <af:commandLink id="cl47" text="جلسات هيئة المفوضين"
+                                          shortDesc="/PortalFragments/SearchRollMofwadeen.xml#SearchRollMofwadeen"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                        action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                        actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                        binding="#{backingBeanScope.PortalHomeBB.cl47}"/></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                   
+                  <li>
+                    <a href="#">المجلة</a>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl48" text="بحوث ومقالات"
+                                          shortDesc="/PortalFragments/Makalat.xml#Makalat"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                          binding="#{backingBeanScope.PortalHomeBB.cl48}"/></a>
+                      </li>
+                       
+                      <li>
+                        <a href="#">
+                          <af:commandLink id="cl49" text="بحث في المجلة"
+                                          shortDesc="/PortalFragments/Search_Magala.xml#Search_Magala"
+                                           styleClass="a xfe"  partialSubmit="true"
+                                    action="#{backingBeanScope.PortalHomeBB.Nav_Action}"
+                                    actionListener="#{backingBeanScope.PortalHomeBB.Nav_Listener}"
+                                          binding="#{backingBeanScope.PortalHomeBB.cl49}"/></a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+              <div class="clear"/>
+            </section>
+          </header>
+          <div class="newstitle">
+            <div class="colortitle">
+              <h5>
+                <af:outputLabel id="ol1" value="lshv"
+                                inlineStyle="text-align:right;"
+                                binding="#{backingBeanScope.PortalHomeBB.ol1}"/>
+              </h5>
+            </div>
+          </div>
+          <div class="yui3-cssreset">
+            <div>
+              <af:panelGroupLayout layout="scroll" id="pgl1"
+                                   binding="#{backingBeanScope.PortalHomeBB.pgl1}">
+                <af:group id="g1"
+                          binding="#{backingBeanScope.PortalHomeBB.g1}"/>
+              </af:panelGroupLayout>
+            </div>
+          </div>
+          <div class="newstitle">
+            <af:panelGroupLayout layout="scroll" id="pgl2"
+                                 styleClass="AFStretchWidth"
+                                 binding="#{backingBeanScope.PortalHomeBB.pgl2}">
+              <af:group id="g2"
+                        binding="#{backingBeanScope.PortalHomeBB.g2}">
+                <f:facet name="PagesContainer"/>
+                <af:region value="#{bindings.dynamicRegion1.regionModel}"
+                           id="r1"
+                           binding="#{backingBeanScope.PortalHomeBB.r1}"
+                           partialTriggers="::cl6 ::cl19 ::cl20 ::cl21 ::cl24 ::cl25 ::cl26 ::cl27 ::cl28 ::cl29 ::cl30 ::cl31 ::cl32 ::cl33 ::cl34 ::cl39 ::cl48 ::cl49"/>
+              </af:group>
+            </af:panelGroupLayout>
+          </div>
+          <footer>
+            <section class="widgets">
+              <article>
+                <img src="../images/footer_logo.png"/>
+              </article>
+              <article class="widget_links">
+                <h3>
+                  <span>عن المحكمة</span>
+                </h3>
+                <ul>
+                  <li>
+                    <a href="AboutCourt.jspx">التعريف بالمحكمة</a>
+                  </li>
+                   
+                  <li>
+                    <a href="CourtHistory.jspx">لمحة تاريخية</a>
+                  </li>
+                   
+                  <li>
+                    <a href="CourtBuilding.jspx">مبني المحكمة</a>
+                  </li>
+                   
+                  <li>
+                    <a href="Galary.jspx">البوم الصور</a>
+                  </li>
+                   
+                  <li>
+                    <a href="chairmanword.jspx">كلمة رئيس المحكمة</a>
+                  </li>
+                   
+                  <li>
+                    <a href="Court_Members_Current.jspx">السادة الأعضاء</a>
+                  </li>
+                </ul>
+              </article>
+              <article class="widget_links">
+                <h3>
+                  <span>الأحكام الدستورية</span>
+                </h3>
+                <ul>
+                  <li>
+                    <a href="HighCourtRules.jspx">أحكام المحكمة العليا</a>
+                  </li>
+                   
+                  <li>
+                    <a href="CourtRules.jspx">أحكام المحكمة الدستورية</a>
+                  </li>
+                   
+                  <li>
+                    <a href="judjements_search.jspx">بحـــث</a>
+                  </li>
+                   
+                  <li>
+                    <a href="LawsSearch.jspx">بحث موضوعي بالتشريعات</a>
+                  </li>
+                   
+                  <li>
+                    <a href="GroupesSearch.jspx">بحث موضوعي بالمجموعات</a>
+                  </li>
+                </ul>
+              </article>
+              <article class="widget_links">
+                <h3>
+                  <span>الجلسات</span>
+                </h3>
+                <ul>
+                  <li>
+                    <a href="CourtRollMofwadeen.jspx">جلسات هيئة المفوضين</a>
+                  </li>
+                   
+                  <li>
+                    <a href="CourtRoll.jspx">جلسات المحكمة</a>
+                  </li>
+                   
+                  <!--  <li>
+        <a href="SearchRolls.jspx">بحث جلسات المحكمة</a>
+        </li>
+         <li>
+        <a href="SearchRollMofwadeen.jspx">بحث جلسات المفوضين</a>
+        </li>-->
+                </ul>
+              </article>
+              <article class="widget_links">
+                <h3>
+                  <span>المجلة</span>
+                </h3>
+                <ul>
+                  <li>
+                    <a href="Makalat.jspx">بحوث ومقالات</a>
+                  </li>
+                   
+                  <li>
+                    <a href="Search_Magala.jspx">بحث في المجلة</a>
+                  </li>
+                </ul>
+              </article>
+            </section>
+            <section class="bottom">
+              <p>
+                جميع الحقوق محفوظة &amp;copy;2015 للمحكمة الدستورية العليا -
+                جمهورية مصر العربية &amp;nbsp; | &amp;nbsp; تطوير الشركة
+                الهندسية للأنظمة المتكاملة 
+                <a target="_blank" tabindex="next" href="http://www.eis.com.eg">EIS</a>
+              </p>
+              <p>
+                 
+              </p>
+              <nav class="social">
+                <ul>
+                  <li>
+                    <a href="#" class="facebook">فيسبوك</a>
+                  </li>
+                   
+                  <li>
+                    <a href="#" class="twitter">تويتر</a>
+                  </li>
+                   
+                  <li>
+                    <a href="#" class="youtube">يوتيوب</a>
+                  </li>
+                </ul>
+              </nav>
+            </section>
+          </footer>
+        </div>
+        <!--<script type="text/javascript" src="js/jquery.js"></script>-->
+        <!--[if lt IE 9]>
+		<script type="text/javascript" src="js/ie.js"></script>
+	<![endif]-->
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:PortalHomeBB-->
+</jsp:root>

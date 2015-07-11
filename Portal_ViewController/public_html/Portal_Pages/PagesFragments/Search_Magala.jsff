@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+
+      <af:panelSplitter id="ps1" styleClass="AFStretchWidth">
+        <f:facet name="first">
+          <af:panelGroupLayout layout="scroll" halign="right"
+                               xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                               id="pgl1">
+            <af:inputText value="#{bindings.MagalaNum.inputValue}"
+                          label="#{bindings.MagalaNum.hints.label}"
+                          required="#{bindings.MagalaNum.hints.mandatory}"
+                          columns="#{bindings.MagalaNum.hints.displayWidth}"
+                          maximumLength="#{bindings.MagalaNum.hints.precision}"
+                          shortDesc="#{bindings.MagalaNum.hints.tooltip}"
+                          id="it1">
+              <f:validator binding="#{bindings.MagalaNum.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.MagalaNum.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.AuthorName.inputValue}"
+                          label="#{bindings.AuthorName.hints.label}"
+                          required="#{bindings.AuthorName.hints.mandatory}"
+                          columns="#{bindings.AuthorName.hints.displayWidth}"
+                          maximumLength="#{bindings.AuthorName.hints.precision}"
+                          shortDesc="#{bindings.AuthorName.hints.tooltip}"
+                          id="it2">
+              <f:validator binding="#{bindings.AuthorName.validator}"/>
+            </af:inputText>
+            <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}"
+                              text="البحث"
+                              disabled="#{!bindings.ExecuteWithParams.enabled}"
+                              id="cb1"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelGroupLayout id="pg1">
+            <af:table value="#{bindings.SearchMagala1.collectionModel}"
+                      var="row" rows="#{bindings.SearchMagala1.rangeSize}"
+                      emptyText="#{bindings.SearchMagala1.viewable ?  ' لا توجد بيانات للعرض.' : 'الاتصال غير مسموح.'}"
+                      fetchSize="#{bindings.SearchMagala1.rangeSize}"
+                      rowBandingInterval="0" styleClass="AFStretchWidth"
+                      filterModel="#{bindings.SearchMagala1Query.queryDescriptor}"
+                      queryListener="#{bindings.SearchMagala1Query.processQuery}"
+                      varStatus="vs"
+                      selectedRowKeys="#{bindings.SearchMagala1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SearchMagala1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1" partialTriggers="::cb1">
+              <af:column sortProperty="#{bindings.SearchMagala1.hints.Magalaid.name}"
+                         filterable="true" sortable="true" align="center"
+                         width="50px"
+                         headerText="#{bindings.SearchMagala1.hints.Magalaid.label}"
+                         id="c1">
+                <af:outputText value="#{row.Magalaid}" id="ot2">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SearchMagala1.hints.Magalaid.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SearchMagala1.hints.Authorname.name}"
+                         filterable="true" sortable="true" width="150px"
+                         headerText="#{bindings.SearchMagala1.hints.Authorname.label}"
+                         id="c2">
+                <af:outputText value="#{row.Authorname}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.SearchMagala1.hints.Namear.name}"
+                         filterable="true" sortable="true" width="250px"
+                         headerText="#{bindings.SearchMagala1.hints.Namear.label}"
+                         id="c3">
+                <af:outputText value="#{row.Namear}" id="ot3"/>
+              </af:column>
+              <af:column headerText="#{bindings.SearchMagala1.hints.Makalurl.label}"
+                         id="c5" align="center" width="50px">
+                <af:goLink text="المقال"
+                           destination="/faces/Portal_Pages/Makalat.jspx"
+                           id="ot5"/>
+              </af:column>
+            </af:table>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelSplitter>
+
+</jsp:root>

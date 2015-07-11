@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="LawsSearch">
+    <default-activity id="__1">LawsSearch1</default-activity>
+    <view id="LawsSearch1">
+      <page>/Portal_Pages/PagesFragments/LawsSearch.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

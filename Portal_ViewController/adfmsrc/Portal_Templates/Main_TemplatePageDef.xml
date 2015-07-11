@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="Main_TemplatePageDef"
+                Package="Portal_Templates">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="RulesChart1Iterator" Binds="RulesChart1"
+              DataControl="AppModuleAM_SDDataControl"/>
+  </executables>
+  <bindings>
+    <table IterBinding="RulesChart1Iterator" id="RulesChart1">
+      <AttrNames>
+        <Item Value="Years"/>
+        <Item Value="HighCourt"/>
+        <Item Value="HighDestoriaCourt"/>
+      </AttrNames>
+    </table>
+  </bindings>
+</pageDefinition>

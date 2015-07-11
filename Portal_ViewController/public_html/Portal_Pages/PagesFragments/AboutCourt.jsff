@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+
+      <af:panelGroupLayout id="pg1" styleClass="AFStretchWidth">
+        <af:inlineFrame id="af_AboutCourt" sizing="preferred"
+                        source="../Static_Content/About/Html/Court_Opening.html"
+                        inlineStyle="width:980px; vertical-align:middle; text-align:center;"/>
+      </af:panelGroupLayout>
+   
+</jsp:root>

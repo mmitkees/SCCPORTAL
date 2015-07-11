@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<pageTemplateDefs xmlns="http://xmlns.oracle.com/adf/faces/rich/pagetemplate">
+ 
+  <pagetemplate-jsp-ui-def>/Portal_Templates/Main_Template.jspx</pagetemplate-jsp-ui-def>
+  <pagetemplate-jsp-ui-def>/Portal_Templates/Main_TemplateF.jspx</pagetemplate-jsp-ui-def>
+
+</pageTemplateDefs>

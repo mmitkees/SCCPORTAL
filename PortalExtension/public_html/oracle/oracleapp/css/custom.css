@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Regular.eot);
+  src: url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Regular.eot?#iefix) format('embedded-opentype'),
+       url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Regular.woff2) format('woff2'),
+       url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Regular.woff) format('woff'),
+       url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Bold.eot);
+  src: url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'),
+       url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Bold.woff2) format('woff2'),
+       url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Bold.woff) format('woff'),
+       url(http://192.168.0.22:8888/webcenter/oracle/oracleapp/fonts/DroidKufi-Bold.ttf) format('truetype');
+}
+
+*{
+	font-family: 'Droid Arabic Kufi', sans-serif !important;
+}
+a,a:hover{
+	-moz-transition: color 0.5s;
+	-webkit-transition: color 0.5s;
+	-o-transition: color 0.5s;
+	transition: color 0.5s;
+}
+.scc-main-header .scc-main-menu td.af_menuBar_item:last-child{
+	padding-left: 0px;
+	border: none;
+}
+.scc-footer .scc-footer-col table.af_table_data-table > tbody > tr:first-child > td{
+	background-color: #865711 !important;
+	padding: 0 5px;
+	margin-bottom: 10px;
+	display: block;
+}

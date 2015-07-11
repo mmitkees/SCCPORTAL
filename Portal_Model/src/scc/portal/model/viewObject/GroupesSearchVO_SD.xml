@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GroupesSearchVO_SD"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy='"RULE_DATE" ASC ,"RULESSUBJECTTYPEORDER" ASC,"COURT_TYPE_CODE" ASC,"COURT_YEAR" ASC,"RULE_NUMBER" ASC'>
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="scc.portal.model.viewObject.GroupesSearchVO_SD_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="PartNumber"
+    Kind="where"
+    Type="oracle.jbo.domain.Number">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['PartNumber']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery>
+    <![CDATA[select  
+cases. court_year
+, cases . rule_number
+, GET_CASE_LAWS (cases.CASE_ID)  as law
+,  remove_tanween(  cases.brief_subject ) as  brief_subject 
+, remove_tanween(cases.brief_law_items) as brief_law_items
+,   remove_tanween( getrulewardings_text( rules_insert.id )) as  rulewarding 
+,to_char(rule_date,'yyyy/mm/dd') as rule_date
+, get_rules_parts_name(rules_insert.part_no) as part_no
+,rules_insert.part_page_no
+,rules_insert.base
+,   remove_tanween(  cases.ROLLS_NOTES ) AS  notes
+,journal_version_num
+,to_char(journal_publish_date,'yyyy/mm/dd') as journal_publish_date
+,to_number( getrulessubjecttypeorder(cases.rule_subject_type_code))as rulessubjecttypeorder
+, getrulessubjecttypename(cases.rule_subject_type_code)  as rulessubjecttypename 
+, getcourtname(cases.court_type_code) as courtname
+,cases.court_type_code 
+,volume_no,to_char(Cases.rule_number)|| ' لسنة '||to_char(Cases.court_year)||getRulesSubjectTypeName(Cases.rule_subject_type_code)  case_info
+,  rules_parts .interval_text
+          from   rules_insert  
+  inner join cases
+                    on cases.case_id = rules_insert.case_id 
+left outer join  rules_parts on rules_insert.part_no =    rules_parts .part_id
+                              where RULES_INSERT.id in ( select id  from RULES_Rules_Warding where rule_warding_code in (1,2,7))
+                              and nvl(part_no,-1)=(case to_number(:PartNumber) when -1 
+                                                   then 1 else 
+                                                   nvl (to_number(:PartNumber),1) end)]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="CourtYear"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURT_YEAR"
+    Expression="COURT_YEAR"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RuleNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="RULE_NUMBER"
+    Expression="RULE_NUMBER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Law"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="LAW"
+    Expression="LAW"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['LawItems']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BriefSubject"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BRIEF_SUBJECT"
+    Expression="BRIEF_SUBJECT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['BBSubject']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BriefLawItems"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BRIEF_LAW_ITEMS"
+    Expression="BRIEF_LAW_ITEMS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['BBLaw']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rulewarding"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="RULEWARDING"
+    Expression="RULEWARDING"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['RuleNText']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RuleDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="RULE_DATE"
+    Expression="RULE_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['RuleDateGroup']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PART_NO"
+    Expression="PART_NO"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['PartNumber']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PartPageNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PART_PAGE_NO"
+    Expression="PART_PAGE_NO"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['Page']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Base"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="FLOAT"
+    AliasName="BASE"
+    Expression="BASE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['Base']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Notes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NOTES"
+    Expression="NOTES"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['Notes']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JournalVersionNum"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="JOURNAL_VERSION_NUM"
+    Expression="JOURNAL_VERSION_NUM"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['JurVersion']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JournalPublishDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="JOURNAL_PUBLISH_DATE"
+    Expression="JOURNAL_PUBLISH_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['Dpublishdate']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rulessubjecttypeorder"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="RULESSUBJECTTYPEORDER"
+    Expression="RULESSUBJECTTYPEORDER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rulessubjecttypename"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="RULESSUBJECTTYPENAME"
+    Expression="RULESSUBJECTTYPENAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Courtname"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="COURTNAME"
+    Expression="COURTNAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['CourtTypeName']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CourtTypeCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURT_TYPE_CODE"
+    Expression="COURT_TYPE_CODE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VolumeNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VOLUME_NO"
+    Expression="VOLUME_NO"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['Volume']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CaseInfo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="CASE_INFO"
+    Expression="CASE_INFO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['SCC_MODEL_AR']['CaseInfo']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IntervalText"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Scale="0"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    AliasName="INTERVAL_TEXT"
+    Expression="INTERVAL_TEXT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <XliffBundle
+      id="SCC_MODEL_AR.xlf"/>
+  </ResourceBundle>
+</ViewObject>

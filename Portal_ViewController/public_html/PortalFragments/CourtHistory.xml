@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="CourtHistory">
+    <default-activity id="__1">CourtHistory1</default-activity>
+    <view id="CourtHistory1">
+      <page>/Portal_Pages/PagesFragments/CourtHistory.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

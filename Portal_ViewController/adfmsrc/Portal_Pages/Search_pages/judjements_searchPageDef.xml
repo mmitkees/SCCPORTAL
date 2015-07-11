@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="judjements_searchPageDef"
+                Package="Portal_Pages.Search_pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="Judjements_SearchVO_HS1" RangeSize="25"
+              DataControl="AppModuleAM_HSDataControl"
+              id="Judjements_SearchVO_HS1Iterator"/>
+    <searchRegion Criteria="Judjements_SearchVO_HSCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Judjements_SearchVO_HS1Iterator"
+                  id="JudjementsSearchVOHSCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Judjements_SearchVO_HS1Iterator"
+          id="Judjements_SearchVO_HS1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.Judjements_SearchVO_HS"
+                      Name="Judjements_SearchVO_HS10">
+        <AttrNames>
+          <Item Value="CourtTypeName"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleNumber"/>
+          <Item Value="CaseStatusName"/>
+          <Item Value="RuleDate"/>
+          <Item Value="PartPageNo"/>
+          <Item Value="PartNo"/>
+          <Item Value="RuleNtext"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Judjements_SearchVO_HS1Iterator"
+                     id="RuleNtext">
+      <AttrNames>
+        <Item Value="RuleNtext"/>
+        <Item Value="CourtTypeName"/>
+        <Item Value="RuleSubjectTypeName"/>
+        <Item Value="CourtYear"/>
+        <Item Value="RuleNumber"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

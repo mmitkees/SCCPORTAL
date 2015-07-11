@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SearchRollMofwadeenPageDef"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsMofwadeen1.variablesMap.RollNumber"
+                     Name="ExecuteWithParams_RollNumber" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsMofwadeen1.variablesMap.CourtYears"
+                     Name="ExecuteWithParams_CourtYears" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsMofwadeen1.variablesMap.RollType"
+                     Name="ExecuteWithParams_RollType" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsMofwadeen1.variablesMap.CaseClaimeds"
+                     Name="ExecuteWithParams_CaseClaimeds" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsMofwadeen1.variablesMap.CaseDefendants"
+                     Name="ExecuteWithParams_CaseDefendants"
+                     IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsMofwadeen1.variablesMap.DefendantsLawers"
+                     Name="ExecuteWithParams_DefendantsLawers"
+                     IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsMofwadeen1.variablesMap.ClaimedsLawers"
+                     Name="ExecuteWithParams_ClaimedsLawers"
+                     IsQueriable="false"/>
+    </variableIterator>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="SearchRollsMofwadeen1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="SearchRollsMofwadeen1Iterator"/>
+    <taskFlow id="SearchRollMofwadeen1"
+              taskFlowId="/PortalFragments/SearchRollMofwadeen.xml#SearchRollMofwadeen"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="variables" id="RollType">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_RollType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="CaseClaimeds">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_CaseClaimeds"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="CaseDefendants">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_CaseDefendants"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="DefendantsLawers">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_DefendantsLawers"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="ClaimedsLawers">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_ClaimedsLawers"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SearchRollsMofwadeen1Iterator"
+          id="SearchRollsMofwadeen1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.SearchRollsMofwadeenVO_SD"
+                      Name="SearchRollsMofwadeen10">
+        <AttrNames>
+          <Item Value="RuleDate"/>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleSubjectTypeCode"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="RollStatus"/>
+          <Item Value="Claimeds"/>
+          <Item Value="Defendents"/>
+          <Item Value="Subject"/>
+          <Item Value="Decree"/>
+          <Item Value="JudgeDone"/>
+          <Item Value="PostponeDate"/>
+          <Item Value="RoleOrder"/>
+          <Item Value="CourtTypeName"/>
+          <Item Value="CaseStatusCode"/>
+          <Item Value="StatusName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>

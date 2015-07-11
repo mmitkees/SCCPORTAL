@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+ 
+      <af:panelSplitter id="ps1" styleClass="AFStretchWidth"
+                        splitterPosition="269" inlineStyle="height:750.0px;">
+        <f:facet name="first">
+          <af:panelGroupLayout xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                               id="pgl1" inlineStyle="text-align:right;">
+            <af:inputText value="#{bindings.LAW_NUM.inputValue}"
+                          required="#{bindings.LAW_NUM.hints.mandatory}"
+                          label="#{bindings.LAW_NUM.hints.label}"
+                          columns="#{bindings.LAW_NUM.hints.displayWidth}"
+                          maximumLength="#{bindings.LAW_NUM.hints.precision}"
+                          shortDesc="#{bindings.LAW_NUM.hints.tooltip}"
+                          id="it1">
+              <f:validator binding="#{bindings.LAW_NUM.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.LAW_NUM.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LAW_YEAR.inputValue}"
+                          label="#{bindings.LAW_YEAR.hints.label}"
+                          required="#{bindings.LAW_YEAR.hints.mandatory}"
+                          columns="#{bindings.LAW_YEAR.hints.displayWidth}"
+                          maximumLength="#{bindings.LAW_YEAR.hints.precision}"
+                          shortDesc="#{bindings.LAW_YEAR.hints.tooltip}"
+                          id="it2">
+              <f:validator binding="#{bindings.LAW_YEAR.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.LAW_YEAR.format}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.LAW_TYPE.inputValue}"
+                                label="#{bindings.LAW_TYPE.label}"
+                                required="#{bindings.LAW_TYPE.hints.mandatory}"
+                                shortDesc="#{bindings.LAW_TYPE.hints.tooltip}"
+                                id="soc1">
+              <f:selectItems value="#{bindings.LAW_TYPE.items}" id="si1"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.LAW_NAME.inputValue}"
+                          label="#{bindings.LAW_NAME.hints.label}"
+                          required="#{bindings.LAW_NAME.hints.mandatory}"
+                          columns="#{bindings.LAW_NAME.hints.displayWidth}"
+                          maximumLength="#{bindings.LAW_NAME.hints.precision}"
+                          shortDesc="#{bindings.LAW_NAME.hints.tooltip}"
+                          id="it3">
+              <f:validator binding="#{bindings.LAW_NAME.validator}"/>
+            </af:inputText>
+            <af:selectOneRadio value="#{bindings.param.inputValue}"
+                               label="#{bindings.param.label}"
+                               styleClass="radio"
+                               required="#{bindings.param.hints.mandatory}"
+                               shortDesc="#{bindings.param.hints.tooltip}"
+                               id="sor1" autoSubmit="true">
+              <f:selectItems value="#{bindings.param.items}" id="si2"/>
+            </af:selectOneRadio>
+            <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}"
+                              text="بحث القوانين"
+                              disabled="#{!bindings.ExecuteWithParams.enabled}"
+                              id="cb1"/>
+            <h3>
+              نتائج البحث
+            </h3>
+            <af:group id="g1">
+              <af:table value="#{bindings.Laws1.collectionModel}" var="row"
+                        rows="#{bindings.Laws1.rangeSize}"
+                        emptyText="#{bindings.Laws1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.Laws1.rangeSize}"
+                        rowBandingInterval="0"
+                        filterModel="#{bindings.Laws1Query.queryDescriptor}"
+                        queryListener="#{bindings.Laws1Query.processQuery}"
+                        varStatus="vs"
+                        selectedRowKeys="#{bindings.Laws1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.Laws1.collectionModel.makeCurrent}"
+                        rowSelection="single" id="md1" partialTriggers="::cb1">
+                <af:column sortProperty="#{bindings.Laws1.hints.Lawtypename.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.Laws1.hints.Lawtypename.label}"
+                           id="c18">
+                  <af:outputText value="#{row.Lawtypename}" id="ot20"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.Laws1.hints.LawName.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.Laws1.hints.LawName.label}"
+                           id="c20">
+                  <af:outputText value="#{row.LawName}" id="ot17"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.Laws1.hints.LawNum.name}"
+                           filterable="true" sortable="true" width="40px" 
+                           headerText="#{bindings.Laws1.hints.LawNum.label}"
+                           id="c19">
+                  <af:outputText value="#{row.LawNum}" id="ot19">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.Laws1.hints.LawNum.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.Laws1.hints.LawYear.name}"
+                           filterable="true" sortable="true" width="40px"
+                           headerText="#{bindings.Laws1.hints.LawYear.label}"
+                           id="c17">
+                  <af:outputText value="#{row.LawYear}" id="ot16">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.Laws1.hints.LawYear.format}"/>
+                  </af:outputText>
+                </af:column>
+               </af:table>
+            </af:group>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:group id="g2">
+            <af:table partialTriggers="::md1 ::cb1"
+                      rows="#{bindings.Cases_Laws1.rangeSize}"
+                      fetchSize="#{bindings.Cases_Laws1.rangeSize}"
+                      emptyText="#{bindings.Cases_Laws1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      var="row" value="#{bindings.Cases_Laws1.collectionModel}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.Cases_Laws1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Cases_Laws1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1">
+              <af:column headerText="#{bindings.Cases_Laws1.hints.CourtYear.label}"
+                         sortProperty="#{bindings.Cases_Laws1.hints.CourtYear.name}"
+                         sortable="false" id="c26">
+                <af:outputText value="#{row.CourtYear}" id="ot9">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Cases_Laws1.hints.CourtYear.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.CaseInfo.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.CaseInfo.label}"
+                         id="c10">
+                <af:outputText value="#{row.CaseInfo}" id="ot8"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.BriefLawItems.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.BriefLawItems.label}"
+                         id="c3">
+                <af:outputText value="#{row.BriefLawItems}" id="ot15"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.BriefSubject.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.BriefSubject.label}"
+                         id="c6">
+                <af:outputText value="#{row.BriefSubject}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.Rulewarding.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.Rulewarding.label}"
+                         id="c15">
+                <af:outputText value="#{row.Rulewarding}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.RuleDate.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.RuleDate.label}"
+                         id="c11">
+                <af:outputText value="#{row.RuleDate}" id="ot11"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.Law.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.Law.label}"
+                         id="c1">
+                <af:outputText value="#{row.Law}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.VolumeNo.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.VolumeNo.label}"
+                         id="c13">
+                <af:outputText value="#{row.VolumeNo}" id="ot13">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Cases_Laws1.hints.VolumeNo.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.PartPageNo.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.PartPageNo.label}"
+                         id="c12">
+                <af:outputText value="#{row.PartPageNo}" id="ot10">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Cases_Laws1.hints.PartPageNo.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.Base.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.Base.label}"
+                         id="c2">
+                <af:outputText value="#{row.Base}" id="ot12">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Cases_Laws1.hints.Base.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.Notes.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.Notes.label}"
+                         id="c8">
+                <af:outputText value="#{row.Notes}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.JournalVersionNum.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.JournalVersionNum.label}"
+                         id="c4">
+                <af:outputText value="#{row.JournalVersionNum}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Cases_Laws1.hints.JournalPublishDate.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.Cases_Laws1.hints.JournalPublishDate.label}"
+                         id="c7">
+                <af:outputText value="#{row.JournalPublishDate}" id="ot5"/>
+              </af:column>
+            </af:table>
+          </af:group>
+        </f:facet>
+      </af:panelSplitter>
+ 
+</jsp:root>

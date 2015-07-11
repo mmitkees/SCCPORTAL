@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:pageTemplate viewId="/Portal_Templates/Main_Template.jspx"
+                   value="#{bindings.pageTemplateBinding}" id="pt1">
+    <f:facet name="Main_Content">
+      <af:inlineFrame id="af_charirman_word" sizing="preferred"
+                      source="../Static_Content/About/Html/history.html"
+                      inlineStyle="width:780.0px;"/>
+    </f:facet>
+  </af:pageTemplate>
+</jsp:root>

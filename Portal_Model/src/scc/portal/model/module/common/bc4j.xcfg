@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="scc.portal.model.module.AppModuleAM_SD">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="scc.portal.model.Portal_Model" name="AppModuleAM_SDLocal" ApplicationName="scc.portal.model.module.AppModuleAM_SD">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="scc.portal.model.module.AppModuleAM_SD"/>
+         <Custom JDBCDataSource="jdbc/scc_connDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="scc.portal.model.Portal_Model" name="AppModuleAM_SDShared" ApplicationName="scc.portal.model.module.AppModuleAM_SD">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="scc.portal.model.module.AppModuleAM_SD"/>
+         <Custom JDBCDataSource="JDBC/SCC"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="scc.portal.model.module.AppModuleAM_HS">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="scc.portal.model.Portal_Model" name="AppModuleAM_HSLocal" ApplicationName="scc.portal.model.module.AppModuleAM_HS">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="scc.portal.model.module.AppModuleAM_HS"/>
+         <Custom JDBCDataSource="jdbc/scc_connDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="scc.portal.model.Portal_Model" name="AppModuleAM_HSShared" ApplicationName="scc.portal.model.module.AppModuleAM_HS">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="scc.portal.model.module.AppModuleAM_HS"/>
+         <Custom JDBCDataSource="JDBC/SCC"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

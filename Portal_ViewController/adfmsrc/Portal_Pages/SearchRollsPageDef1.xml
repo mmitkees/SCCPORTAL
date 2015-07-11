@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="SearchRollsPageDef1"
+                Package="Portal_Pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsVO_SD1.variablesMap.RollNumber"
+                     Name="ExecuteWithParams_RollNumber" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsVO_SD1.variablesMap.CourtYears"
+                     Name="ExecuteWithParams_CourtYears" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsVO_SD1.variablesMap.RollType"
+                     Name="ExecuteWithParams_RollType" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsVO_SD1.variablesMap.CaseClaimeds"
+                     Name="ExecuteWithParams_CaseClaimeds" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsVO_SD1.variablesMap.CaseDefendants"
+                     Name="ExecuteWithParams_CaseDefendants"
+                     IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsVO_SD1.variablesMap.DefendantsLawers"
+                     Name="ExecuteWithParams_DefendantsLawers"
+                     IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleAM_SDDataControl"
+                     Binds="SearchRollsVO_SD1.variablesMap.ClaimedsLawers"
+                     Name="ExecuteWithParams_ClaimedsLawers"
+                     IsQueriable="false"/>
+    </variableIterator>
+    <page path="Portal_Templates.Main_TemplatePageDef" id="pageTemplateBinding"
+          Refresh="ifNeeded"/>
+    <iterator Binds="SearchRollsVO_SD1" RangeSize="25"
+              DataControl="AppModuleAM_SDDataControl"
+              id="CasesSearchVO_SD1Iterator"/>
+    <iterator Binds="RuleSubjectTypesLOV_VO_HS1" RangeSize="-1"
+              DataControl="AppModuleAM_HSDataControl"
+              id="RuleSubjectTypesLOV_VO_HS1Iterator"/>
+    <iterator Binds="CASES_CLAIMED_VO_HS1" RangeSize="-1"
+              DataControl="AppModuleAM_HSDataControl"
+              id="CASES_CLAIMED_VO_HS1Iterator"/>
+    <iterator Binds="CasesDefendant1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="CasesDefendant1Iterator"/>
+    <iterator Binds="CaseDefendantLawers1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="CaseDefendantLawers1Iterator"/>
+    <iterator Binds="CaseClaimedLawers1" RangeSize="-1"
+              DataControl="AppModuleAM_SDDataControl"
+              id="CaseClaimedLawers1Iterator"/>
+    <searchRegion Binds="CasesSearchVO_SD1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CasesSearchVO_SD1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CasesSearchVO_SD1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="RollNumber" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_RollNumber}"/>
+      <NamedData NDName="CourtYears" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_CourtYears}"/>
+      <NamedData NDName="RollType" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_RollType}"/>
+      <NamedData NDName="CaseClaimeds" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_CaseClaimeds}"/>
+      <NamedData NDName="CaseDefendants" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_CaseDefendants}"/>
+      <NamedData NDName="DefendantsLawers" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_DefendantsLawers}"/>
+      <NamedData NDName="ClaimedsLawers" NDType="oracle.jbo.domain.Number"
+                 NDValue="${bindings.ExecuteWithParams_ClaimedsLawers}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="RollNumber">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_RollNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="CourtYears">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_CourtYears"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="variables" id="RollType" DTSupportsMRU="true"
+          StaticList="false" ListIter="RuleSubjectTypesLOV_VO_HS1Iterator"
+          NullValueId="param_null"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_RollType"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Code"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="CaseClaimeds" DTSupportsMRU="true"
+          StaticList="false" ListIter="CASES_CLAIMED_VO_HS1Iterator"
+          NullValueId="all"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_CaseClaimeds"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Claimed"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="CaseDefendants" DTSupportsMRU="true"
+          StaticList="false" ListIter="CasesDefendant1Iterator"
+          NullValueId="all"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_CaseDefendants"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="DefendantsLawers" DTSupportsMRU="true"
+          StaticList="false" ListIter="CaseDefendantLawers1Iterator"
+          NullValueId="all"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_DefendantsLawers"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="ClaimedsLawers" DTSupportsMRU="true"
+          StaticList="false" ListIter="CaseClaimedLawers1Iterator"
+          NullValueId="all"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_ClaimedsLawers"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <tree IterBinding="CasesSearchVO_SD1Iterator" id="CasesSearchVO_SD1">
+      <nodeDefinition DefName="scc.portal.model.viewObject.SearchRollsVO_SD"
+                      Name="CasesSearchVO_SD10">
+        <AttrNames>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleDate"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="RollStatus"/>
+          <Item Value="Claimeds"/>
+          <Item Value="Defendents"/>
+          <Item Value="Subject"/>
+          <Item Value="Decree"/>
+          <Item Value="JudgeDone"/>
+          <Item Value="PostponeDate"/>
+          <Item Value="CourtTypeName"/>
+          <Item Value="StatusName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CasesSearchVO_SD1Iterator" id="CasesSearchVO_SD11">
+      <nodeDefinition DefName="scc.portal.model.viewObject.SearchRollsVO_SD"
+                      Name="CasesSearchVO_SD110">
+        <AttrNames>
+          <Item Value="RuleNumber"/>
+          <Item Value="CourtYear"/>
+          <Item Value="RuleDate"/>
+          <Item Value="RuleSubjectTypeName"/>
+          <Item Value="RollStatus"/>
+          <Item Value="Claimeds"/>
+          <Item Value="Defendents"/>
+          <Item Value="Subject"/>
+          <Item Value="Decree"/>
+          <Item Value="JudgeDone"/>
+          <Item Value="PostponeDate"/>
+          <Item Value="CourtTypeName"/>
+          <Item Value="StatusName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ViewResource_AR"/>
+  </ResourceBundle>
+</pageDefinition>
